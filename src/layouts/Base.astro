@@ -1,0 +1,108 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+const { title, description, canonical, noindex } = Astro.props;
+const fullCanonical = canonical || new URL(Astro.url.pathname, 'https://interviews.networkershome.com').href;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={fullCanonical} />
+  {noindex && <meta name="robots" content="noindex" />}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={fullCanonical} />
+  <meta property="og:site_name" content="Networkers Home — Interview Questions" />
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; line-height: 1.6; color: #111; background: #fff; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    header.site { border-bottom: 2px solid #000; padding: 16px 0; background: #fff; }
+    header.site .brand { font-weight: 900; font-size: 18px; color: #000; text-decoration: none; }
+    header.site .brand .sub { font-weight: 400; color: #666; margin-left: 8px; font-size: 14px; }
+    header.site nav { display: flex; gap: 24px; align-items: center; }
+    header.site nav a { color: #111; text-decoration: none; font-size: 14px; font-weight: 600; }
+    header.site nav a:hover { color: #1F4FD8; }
+    footer.site { background: #000; color: #fff; padding: 32px 0; margin-top: 64px; font-size: 14px; }
+    footer.site .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    footer.site a { color: #fff; text-decoration: underline; }
+    footer.site a:hover { color: #92b5ff; }
+    h1 { font-size: 2.2rem; line-height: 1.2; margin: 0 0 16px; letter-spacing: -0.02em; }
+    h2 { font-size: 1.4rem; margin: 32px 0 12px; letter-spacing: -0.01em; }
+    h3 { font-size: 1.1rem; margin: 24px 0 8px; }
+    .crumb { font-size: 13px; color: #666; padding: 12px 0; }
+    .crumb a { color: #1F4FD8; text-decoration: none; }
+    .crumb a:hover { text-decoration: underline; }
+    .cta-banner { background: #1F4FD8; color: #fff; padding: 16px 20px; border-radius: 8px; margin: 24px 0; }
+    .cta-banner a { color: #fff; font-weight: 700; text-decoration: underline; }
+    .cta-banner a:hover { color: #f0f4ff; }
+    .qa-card { border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 20px; margin-bottom: 16px; background: #fafafa; transition: border-color 0.15s; }
+    .qa-card:hover { border-color: rgba(0,0,0,0.2); background: #fff; }
+    .qa-card .category-pill { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #1F4FD8; margin-bottom: 8px; }
+    .qa-card h3 { font-size: 17px; margin: 8px 0 12px; color: #000; }
+    .qa-card h3 a { color: #000; text-decoration: none; }
+    .qa-card h3 a:hover { color: #1F4FD8; }
+    .qa-card .answer { font-size: 14px; color: #444; }
+    .qa-card .read-more { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 700; color: #1F4FD8; text-decoration: none; }
+    .qa-card .read-more:hover { text-decoration: underline; }
+    .deep-dive-callout { background: #f0f7ff; border-left: 4px solid #1F4FD8; padding: 16px 20px; margin: 24px 0; border-radius: 4px; }
+    .deep-dive-callout a { color: #1F4FD8; font-weight: 700; }
+    .topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 24px 0; }
+    .topic-grid .topic-card { border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; padding: 20px; text-decoration: none; color: inherit; transition: all 0.15s; }
+    .topic-grid .topic-card:hover { border-color: #1F4FD8; box-shadow: 0 2px 8px rgba(31,79,216,0.1); }
+    .topic-grid .topic-card h3 { margin: 0 0 6px; font-size: 16px; color: #000; }
+    .topic-grid .topic-card p { margin: 0; font-size: 13px; color: #666; }
+    .topic-grid .topic-card .count { color: #1F4FD8; font-weight: 700; }
+    .stat-strip { background: #000; color: #fff; padding: 20px; border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; margin: 24px 0; text-align: center; }
+    .stat-strip .stat .value { font-size: 1.6rem; font-weight: 900; display: block; }
+    .stat-strip .stat .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      header.site .brand .sub { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="container-wide" style="display:flex; justify-content:space-between; align-items:center;">
+      <a href="/" class="brand">Networkers Home<span class="sub">Interview Questions</span></a>
+      <nav>
+        <a href="/">All topics</a>
+        <a href="https://www.networkershome.com/" target="_blank">Main site →</a>
+      </nav>
+    </div>
+  </header>
+
+  <slot />
+
+  <footer class="site">
+    <div class="grid">
+      <div>
+        <p style="margin-top:0;"><strong>Networkers Home</strong> — India's leading Cisco + cybersecurity training institute (HSR Layout, Bangalore since 2005). 45,000+ engineers placed at 800+ hiring partners.</p>
+        <p>Curated by <strong>Vikas Swami, Dual CCIE #22239</strong> (Security + R&amp;S).</p>
+      </div>
+      <div>
+        <p style="margin-top:0;"><strong>Flagship courses:</strong></p>
+        <p>
+          <a href="https://www.networkershome.com/best-cybersecurity-course-in-bangalore/">Cybersecurity course Bangalore</a><br />
+          <a href="https://www.networkershome.com/best-ccna-course-in-bangalore/">CCNA course Bangalore</a><br />
+          <a href="https://www.networkershome.com/best-ccnp-enterprise-course-in-bangalore/">CCNP Enterprise</a><br />
+          <a href="https://www.networkershome.com/best-ccie-security-course-in-bangalore/">CCIE Security</a><br />
+          <a href="https://www.networkershome.com/networkershome-all-courses/">All courses</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

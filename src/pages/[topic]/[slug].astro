@@ -1,0 +1,113 @@
+---
+import Base from '@/layouts/Base.astro';
+import data from '@/data/interview-questions.json';
+
+export function getStaticPaths() {
+  return data.questions.map((q) => ({
+    params: { topic: q.topic, slug: q.slug },
+    props: {
+      question: q.question,
+      answer: q.answer,
+      category: q.category,
+      topicLabel: q.topicLabel,
+      sourceUrl: q.sourceUrl,
+      targetKeyword: q.targetKeyword,
+      wordCount: q.wordCount,
+    },
+  }));
+}
+
+const { topic, slug } = Astro.params;
+const { question, answer, category, topicLabel, sourceUrl } = Astro.props;
+
+// Find 3 related Q&As in the same topic
+const related = data.questions
+  .filter((q) => q.topic === topic && q.slug !== slug)
+  .filter((q) => q.category === category)
+  .slice(0, 3);
+
+const seoTitle = `${question} — ${topicLabel} Interview Answer | Networkers Home`;
+const seoDescription = answer.slice(0, 155);
+const canonicalNH = `https://www.networkershome.com${sourceUrl}`;
+
+// QAPage schema for this single Q&A
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": question,
+    "answerCount": 1,
+    "datePublished": "2026-05-12",
+    "author": { "@type": "Person", "name": "Vikas Swami", "jobTitle": "Dual CCIE #22239 (Security + R&S)" },
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": answer,
+      "author": { "@type": "Person", "name": "Vikas Swami" },
+      "url": canonicalNH
+    }
+  }
+};
+---
+<Base title={seoTitle} description={seoDescription}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <main class="container" style="padding: 32px 20px;">
+
+    <div class="crumb">
+      <a href="/">All topics</a> &nbsp;›&nbsp;
+      <a href={`/${topic}/`}>{topicLabel}</a> &nbsp;›&nbsp;
+      {category}
+    </div>
+
+    <span class="qa-card category-pill" style="margin-bottom: 8px; display: inline-block;">{category} · {topicLabel}</span>
+
+    <h1>{question}</h1>
+
+    <div style="font-size: 1.05rem; color: #222; white-space: pre-wrap; padding: 24px; background: #fafafa; border-radius: 8px; border-left: 4px solid #1F4FD8;">{answer}</div>
+
+    <div class="deep-dive-callout">
+      <strong>Want the full explanation?</strong> This is the atomic answer suitable for
+      quick interview prep. For the structured deep-dive — including code samples,
+      strong-answer vs weak-answer notes, common follow-up questions, and how this fits
+      the larger {topicLabel.toLowerCase()} topic — see the full Q&amp;A on Networkers Home:
+      <br /><br />
+      <a href={canonicalNH} target="_blank">→ {topicLabel} Interview Hub — Full Q&amp;A with deep context</a>
+    </div>
+
+    <h2>How Networkers Home prepares students for this kind of question</h2>
+    <p>
+      This question reflects real interview rounds at Bangalore's top
+      {topic === 'soc-analyst' || topic === 'ethical-hacking' || topic === 'ai-cybersecurity' ?
+        ' product, BFSI, and GCC cybersecurity teams' :
+        ' enterprise networking and infrastructure teams'}.
+      Networkers Home's flagship courses include mock interview sessions
+      drilling exactly these question patterns, with feedback from interviewers
+      who have hired for the role.
+    </p>
+    <p>
+      <a href={`https://www.networkershome.com${sourceUrl}`} target="_blank"><strong>→ View the complete {topicLabel.toLowerCase()} interview prep hub</strong></a>
+      <br />
+      <a href={topic === 'cisco-network-engineer' ? 'https://www.networkershome.com/best-ccna-course-in-bangalore/' : 'https://www.networkershome.com/best-cybersecurity-course-in-bangalore/'} target="_blank">→ View the related Networkers Home course</a>
+      <br />
+      <a href="https://www.networkershome.com/contactus/" target="_blank">→ Book a free career consultation</a>
+    </p>
+
+    {related.length > 0 && (
+      <>
+        <h2>Related {category} questions</h2>
+        {related.map((r) => (
+          <div class="qa-card">
+            <span class="category-pill">{category}</span>
+            <h3><a href={`/${topic}/${r.slug}/`}>Q. {r.question}</a></h3>
+            <div class="answer">{r.answer.slice(0, 220)}…</div>
+            <a class="read-more" href={`/${topic}/${r.slug}/`}>Read full answer →</a>
+          </div>
+        ))}
+      </>
+    )}
+
+  </main>
+</Base>

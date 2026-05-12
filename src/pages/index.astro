@@ -1,0 +1,74 @@
+---
+import Base from '@/layouts/Base.astro';
+import data from '@/data/interview-questions.json';
+
+const topics = data.topics;
+const totalQs = data.total_qas;
+---
+<Base
+  title="Networking + Cybersecurity Interview Questions Database — 100+ Real Q&As | Networkers Home"
+  description={`${totalQs}+ networking and cybersecurity interview questions with detailed answers. Cisco, CCNA, SOC analyst, ethical hacking, AI security. Curated by Vikas Swami, Dual CCIE #22239.`}
+>
+  <main class="container" style="padding: 32px 20px;">
+
+    <h1>Networking + Cybersecurity Interview Questions</h1>
+    <p style="font-size: 1.1rem; color: #444;">
+      A free, curated database of <strong>{totalQs}+ real interview questions</strong> from
+      18 years of placement data across Bangalore's 800+ hiring partners. Curated by
+      <a href="https://www.networkershome.com/vikas-swami/" target="_blank">Vikas Swami,
+      Dual CCIE #22239</a>, founder of <a href="https://www.networkershome.com/" target="_blank">Networkers Home</a>.
+    </p>
+
+    <div class="stat-strip">
+      <div class="stat"><span class="value">{totalQs}+</span><span class="label">Real Q&amp;As</span></div>
+      <div class="stat"><span class="value">800+</span><span class="label">Hiring partners</span></div>
+      <div class="stat"><span class="value">45,000+</span><span class="label">Engineers placed</span></div>
+      <div class="stat"><span class="value">18 yrs</span><span class="label">Interview data</span></div>
+    </div>
+
+    <h2>Browse by topic</h2>
+    <div class="topic-grid">
+      {topics.map((t) => (
+        <a class="topic-card" href={`/${t.topic}/`}>
+          <h3>{t.topicLabel}</h3>
+          <p><span class="count">{t.qa_count} Q&amp;As</span> · prepare for {t.targetKeyword} interviews</p>
+        </a>
+      ))}
+    </div>
+
+    <div class="cta-banner">
+      <strong>Ready to go beyond Q&amp;A practice?</strong>
+      Our 8-month flagship courses include mock interviews, hands-on Cisco/Palo Alto/Fortinet labs,
+      and direct introductions to 800+ hiring partners.
+      <a href="https://www.networkershome.com/best-cybersecurity-course-in-bangalore/" target="_blank">View Cybersecurity course →</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.networkershome.com/best-ccna-course-in-bangalore/" target="_blank">View CCNA course →</a>
+    </div>
+
+    <h2>Why this database exists</h2>
+    <p>
+      Most networking interview prep sites are content-farm Q&amp;As written by people who've
+      never actually conducted a technical interview. This database is different — every
+      question comes from real interview rounds at Bangalore's top employers: Cisco, HCL, Akamai,
+      Aryaka, Movate, Wipro, TCS, Infosys, IBM, Accenture, and 790 other hiring partners.
+    </p>
+    <p>
+      Each answer is calibrated to what an actual L1/L2/L3 panel would accept — not the
+      textbook version. For deeper context, follow the <em>"Read full explanation"</em> links
+      back to <a href="https://www.networkershome.com/" target="_blank">networkershome.com</a>
+      where each Q&amp;A is part of a structured topic guide.
+    </p>
+
+    <h2>About the curator</h2>
+    <p>
+      <strong>Vikas Swami</strong> is the founder of Networkers Home (HSR Layout, Bangalore,
+      since 2005) and one of India's earliest Dual CCIE certified engineers — CCIE #22239 in
+      both Security and Routing &amp; Switching. Ex-Cisco engineer. Has personally conducted
+      technical interviews with 1,000+ candidates and built hiring partnerships with 800+
+      Bangalore companies. He also designed each of NH's
+      <a href="https://github.com/NETWORKERS-HOME-123" target="_blank">14 open-source networking
+      and security simulators</a> used by 50,000+ students for hands-on practice.
+    </p>
+
+  </main>
+</Base>

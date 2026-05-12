@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://interviews.networkershome.com/sitemap-index.xml

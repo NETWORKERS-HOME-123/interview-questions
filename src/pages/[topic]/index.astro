@@ -1,0 +1,75 @@
+---
+import Base from '@/layouts/Base.astro';
+import data from '@/data/interview-questions.json';
+
+export function getStaticPaths() {
+  return data.topics.map((t) => ({
+    params: { topic: t.topic },
+    props: {
+      topicLabel: t.topicLabel,
+      sourceUrl: t.sourceUrl,
+      targetKeyword: t.targetKeyword,
+      qaCount: t.qa_count,
+    },
+  }));
+}
+
+const { topic } = Astro.params;
+const { topicLabel, sourceUrl, targetKeyword, qaCount } = Astro.props;
+
+const questions = data.questions.filter((q) => q.topic === topic);
+const byCategory = questions.reduce((acc, q) => {
+  if (!acc[q.category]) acc[q.category] = [];
+  acc[q.category].push(q);
+  return acc;
+}, {} as Record<string, typeof questions>);
+
+const seoTitle = `${topicLabel} Interview Questions — ${qaCount} Real Q&As | Networkers Home`;
+const seoDescription = `${qaCount} real ${topicLabel} interview questions with atomic answers. From 18 years of Bangalore placement data. By Vikas Swami, Dual CCIE #22239.`;
+---
+<Base title={seoTitle} description={seoDescription}>
+  <main class="container" style="padding: 32px 20px;">
+
+    <div class="crumb">
+      <a href="/">All topics</a> &nbsp;›&nbsp; {topicLabel}
+    </div>
+
+    <h1>{topicLabel} Interview Questions</h1>
+    <p style="font-size: 1.05rem; color: #444;">
+      <strong>{qaCount} real interview questions</strong> from {topicLabel.toLowerCase()} interviews
+      at Bangalore's top product, services, and BFSI companies. Each answer is the
+      atomic version — for the full explanation, related concepts, and a complete topic
+      guide, follow the link to the full version on Networkers Home.
+    </p>
+
+    <div class="cta-banner">
+      <strong>Want structured preparation, not just Q&amp;A drilling?</strong>
+      Networkers Home's <a href={`https://www.networkershome.com${sourceUrl}`} target="_blank">full {topicLabel.toLowerCase()} interview prep guide</a>
+      groups these questions by interview round, adds strong-answer vs weak-answer notes,
+      and walks through follow-up questions panels typically ask next.
+    </div>
+
+    {Object.entries(byCategory).map(([category, qs]) => (
+      <section style="margin-top: 40px;">
+        <h2 style="border-bottom: 2px solid #000; padding-bottom: 8px;">{category}</h2>
+        {qs.map((q) => (
+          <div class="qa-card">
+            <span class="category-pill">{category}</span>
+            <h3><a href={`/${topic}/${q.slug}/`}>Q. {q.question}</a></h3>
+            <div class="answer">{q.answer.slice(0, 300)}{q.answer.length > 300 ? '…' : ''}</div>
+            <a class="read-more" href={`/${topic}/${q.slug}/`}>Read full atomic answer →</a>
+          </div>
+        ))}
+      </section>
+    ))}
+
+    <div class="deep-dive-callout">
+      <strong>Deeper context lives at networkershome.com.</strong>
+      Each of these Q&amp;As is part of a structured topic guide on the main site, with
+      multi-part answers, code samples where relevant, strong vs weak answer notes, and
+      follow-up question patterns. <a href={`https://www.networkershome.com${sourceUrl}`} target="_blank">View
+      the full {topicLabel.toLowerCase()} interview hub →</a>
+    </div>
+
+  </main>
+</Base>
