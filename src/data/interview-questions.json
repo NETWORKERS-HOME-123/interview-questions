@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-12T05:34:57.533Z",
-  "total_qas": 100,
+  "generated_at": "2026-05-12T07:47:44.988Z",
+  "total_qas": 120,
   "topics": [
     {
       "topic": "cisco-network-engineer",
@@ -1092,7 +1092,12 @@
       "question": "Explain the OSI model — and which layers do TCP and IP operate at?",
       "answer": "The OSI model has 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application. IP operates at Layer 3 (Network — handles addressing and routing between networks). TCP operates at Layer 4 (Transport — handles connection-oriented reliable delivery). UDP also at Layer 4 (connectionless). Memorising this is non-negotiable for any networking interview.",
       "slug": "explain-the-osi-model-and-which-layers-do-tcp-and-ip-operate-at",
-      "wordCount": 52
+      "wordCount": 52,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1104,7 +1109,12 @@
       "question": "What's the broadcast address and number of usable hosts for 192.168.1.0/26?",
       "answer": "/26 = 255.255.255.192 = 64 addresses per subnet. For 192.168.1.0/26: network address 192.168.1.0, broadcast 192.168.1.63, usable hosts 192.168.1.1–192.168.1.62 (62 usable). Formula: 2^(32-prefix) - 2 = 2^6 - 2 = 62 usable hosts.",
       "slug": "whats-the-broadcast-address-and-number-of-usable-hosts-for-192-168-1-0-26",
-      "wordCount": 32
+      "wordCount": 32,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1116,7 +1126,11 @@
       "question": "How do you subnet 10.0.0.0/16 to support 50 subnets each with at least 100 hosts?",
       "answer": "Need 50 subnets → 2^6 = 64, so 6 subnet bits. Need 100 hosts/subnet → 2^7 - 2 = 126, so 7 host bits. 16 + 6 + 7 = 29 bits used → /23 prefix would give us 7 host bits and 7 subnet bits (128 subnets). Most accurate answer: /23 mask (255.255.254.0) works — gives 128 subnets of 510 hosts each. Trade-off: address efficiency vs subnet count.",
       "slug": "how-do-you-subnet-10-0-0-0-16-to-support-50-subnets-each-with-at-least-100-hosts",
-      "wordCount": 69
+      "wordCount": 69,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1128,7 +1142,12 @@
       "question": "Difference between access port and trunk port?",
       "answer": "Access port — carries traffic for a single VLAN, untagged. Connects end devices (PCs, printers). Frames going in are assigned to the access VLAN; frames going out are untagged. Trunk port — carries traffic for multiple VLANs, tagged with 802.1Q (or ISL legacy). Connects switches together or to routers/firewalls. Native VLAN traffic is untagged; all other VLAN traffic is tagged.",
       "slug": "difference-between-access-port-and-trunk-port",
-      "wordCount": 60
+      "wordCount": 60,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1140,7 +1159,12 @@
       "question": "What's the role of Spanning Tree Protocol (STP) and how is the root bridge elected?",
       "answer": "STP prevents loops in switched networks by blocking redundant paths. Root bridge election: switch with the lowest Bridge ID (Priority + MAC address) wins. Default priority is 32768 (or 32768 + VLAN ID for PVST+). Lower priority = better candidate. Once root is elected, every switch calculates the lowest-cost path to the root and blocks alternate paths. Variants: STP (802.1D), RSTP (802.1w, faster convergence), MST (802.1s, multiple instances).",
       "slug": "whats-the-role-of-spanning-tree-protocol-stp-and-how-is-the-root-bridge-elected",
-      "wordCount": 68
+      "wordCount": 68,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1152,7 +1176,12 @@
       "question": "What's the difference between RSTP and traditional STP?",
       "answer": "RSTP (Rapid Spanning Tree Protocol, 802.1w) converges in seconds vs STP's 30-50 seconds. Key changes: (1) eliminated listening + learning states (replaced with discarding), (2) introduced edge ports + alternate ports + backup ports for faster failover, (3) uses BPDUs as keepalives bidirectionally between switches. Backwards-compatible — RSTP downshifts to STP when paired with legacy switches.",
       "slug": "whats-the-difference-between-rstp-and-traditional-stp",
-      "wordCount": 56
+      "wordCount": 56,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1164,7 +1193,13 @@
       "question": "What's the difference between OSPF, EIGRP, and BGP?",
       "answer": "OSPF (link-state, IGP, open standard, RFC 2328) — runs Dijkstra SPF inside each area, fast convergence, hierarchical with areas. EIGRP (advanced distance-vector, IGP, originally Cisco-proprietary now open) — uses DUAL algorithm, fastest convergence among IGPs, less complex than OSPF. BGP (path-vector, EGP, RFC 4271) — used between autonomous systems (the internet's backbone), policy-driven, slow convergence, scales to 1M+ routes. Use OSPF for enterprise multi-vendor, EIGRP for Cisco-only, BGP for ISP/multi-AS.",
       "slug": "whats-the-difference-between-ospf-eigrp-and-bgp",
-      "wordCount": 70
+      "wordCount": 70,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1176,7 +1211,12 @@
       "question": "Explain OSPF area types — backbone, regular, stub, totally stubby, NSSA.",
       "answer": "Backbone (area 0) — must be present, all other areas connect to it. Regular area — accepts all LSA types (1, 2, 3, 4, 5). Stub area — blocks Type 5 (external LSAs); ABR injects default route. Totally stubby (Cisco proprietary) — blocks Type 3, 4, 5; only default route from ABR. NSSA (Not-So-Stubby Area) — like stub but allows Type 7 LSAs (redistributed routes from non-OSPF), translated to Type 5 at ABR. Use case: branch offices that need external route info but want a small LSDB.",
       "slug": "explain-ospf-area-types-backbone-regular-stub-totally-stubby-nssa",
-      "wordCount": 87
+      "wordCount": 87,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1188,7 +1228,12 @@
       "question": "What's an OSPF DR/BDR and why are they elected?",
       "answer": "On multi-access networks (Ethernet broadcast), OSPF elects a Designated Router (DR) and Backup DR (BDR) to reduce LSA flooding. Without DR, every router would establish full adjacencies with every other router on the segment (n*(n-1)/2 adjacencies). With DR, all routers form adjacencies with DR only — n adjacencies. Election: highest OSPF priority wins (default 1). Tie-broken by highest router ID. Priority 0 = ineligible. DR/BDR not used on point-to-point links.",
       "slug": "whats-an-ospf-dr-bdr-and-why-are-they-elected",
-      "wordCount": 70
+      "wordCount": 70,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1200,7 +1245,12 @@
       "question": "EIGRP DUAL algorithm — explain Successor and Feasible Successor.",
       "answer": "Successor — the route with the lowest metric to a destination, installed in the routing table. Feasible Successor (FS) — a backup route that satisfies the Feasibility Condition: FS reported distance < Successor feasible distance. FS is pre-computed, kept in topology table, and installed instantly if Successor fails — no recomputation needed. This is what gives EIGRP sub-second convergence. If no FS exists, DUAL goes Active and queries neighbors — slower.",
       "slug": "eigrp-dual-algorithm-explain-successor-and-feasible-successor",
-      "wordCount": 71
+      "wordCount": 71,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1212,7 +1262,12 @@
       "question": "BGP path attributes — list the 6 well-known mandatory ones.",
       "answer": "Per RFC 4271: AS_PATH, NEXT_HOP, ORIGIN, LOCAL_PREF (well-known discretionary, only for iBGP), ATOMIC_AGGREGATE (well-known discretionary), MED (optional non-transitive). Path selection order: Highest Weight (Cisco-only) → Highest LOCAL_PREF → Locally Originated → Shortest AS_PATH → Lowest ORIGIN → Lowest MED → eBGP over iBGP → Lowest IGP metric to next-hop → Oldest Route → Lowest Router-ID. Memorising this order is a CCNP / CCIE benchmark question.",
       "slug": "bgp-path-attributes-list-the-6-well-known-mandatory-ones",
-      "wordCount": 65
+      "wordCount": 65,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1224,7 +1279,11 @@
       "question": "Standard vs extended ACL — when do you use each?",
       "answer": "Standard ACL (1–99 or 1300–1999) — filters by source IP only. Apply close to destination (because filtering only by source means you don't want to block legitimate traffic to other destinations from same source). Extended ACL (100–199 or 2000–2699) — filters by source IP + destination IP + protocol + ports. Apply close to source for efficiency (drops unwanted traffic before it traverses the network). Modern best practice: use named ACLs for both readability.",
       "slug": "standard-vs-extended-acl-when-do-you-use-each",
-      "wordCount": 74
+      "wordCount": 74,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1236,7 +1295,12 @@
       "question": "Difference between NAT, PAT, and dynamic NAT?",
       "answer": "NAT (static) — 1:1 mapping between inside-local and inside-global. Used for servers needing fixed external IPs. Dynamic NAT — pool of inside-global IPs assigned dynamically to inside-local IPs as needed. Once mapping established, it persists for connection. PAT (NAT overload) — many-to-one mapping using port numbers to differentiate. The default for most internet-facing routers — millions of internal IPs sharing a single public IP via different source ports. Cisco command: ip nat inside source list 1 interface GigabitEthernet0/0 overload.",
       "slug": "difference-between-nat-pat-and-dynamic-nat",
-      "wordCount": 79
+      "wordCount": 79,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1248,7 +1312,11 @@
       "question": "Site-to-site IPsec VPN — explain Phase 1 and Phase 2.",
       "answer": "Phase 1 (IKE/ISAKMP) — establishes a secure channel for negotiating Phase 2. Negotiates: encryption algo (AES, 3DES), authentication (PSK or certs), DH group, lifetime. Two modes: Main Mode (6 messages, more secure) or Aggressive Mode (3 messages, faster but exposes identity). Phase 2 (IPsec) — establishes the actual data tunnel. Negotiates: transform set (ESP/AH + encryption + hash), proxy IDs (interesting traffic), tunnel mode (typical) or transport mode. Phase 1 SA is bidirectional; Phase 2 SAs are unidirectional pairs.",
       "slug": "site-to-site-ipsec-vpn-explain-phase-1-and-phase-2",
-      "wordCount": 79
+      "wordCount": 79,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1260,7 +1328,11 @@
       "question": "EtherChannel — LACP vs PAgP vs static. Trade-offs?",
       "answer": "LACP (802.3ad, IEEE standard, multi-vendor) — modes: active (initiates), passive (responds). Negotiation overhead but interoperable across vendors. PAgP (Cisco-proprietary) — modes: desirable (initiates), auto (responds). Faster negotiation but Cisco-only. Static (mode on) — no negotiation, just bundles physically. Fast setup but error-prone (silent misconfig). Best practice: LACP active-active for production multi-vendor environments.",
       "slug": "etherchannel-lacp-vs-pagp-vs-static-trade-offs",
-      "wordCount": 52
+      "wordCount": 52,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1272,7 +1344,11 @@
       "question": "What are the differences between 802.11ax (Wi-Fi 6) and 802.11ac (Wi-Fi 5)?",
       "answer": "Wi-Fi 6 (802.11ax) introduced: OFDMA (better multi-user efficiency vs OFDM in Wi-Fi 5), MU-MIMO uplink + downlink (Wi-Fi 5 was downlink only), Target Wake Time (TWT) for IoT power savings, BSS Coloring (interference reduction in dense deployments), and 1024-QAM modulation (higher peak speeds). Real-world impact: Wi-Fi 6 shines in dense environments (office floors, conference centres) where Wi-Fi 5 chokes.",
       "slug": "what-are-the-differences-between-802-11ax-wi-fi-6-and-802-11ac-wi-fi-5",
-      "wordCount": 59
+      "wordCount": 59,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1284,7 +1360,12 @@
       "question": "User reports they can't reach 8.8.8.8 from their PC — walk through troubleshooting.",
       "answer": "Layer-by-layer: (1) Layer 1: ping default gateway — if fails, check cable/link status. (2) Layer 2: arp -a to verify MAC of default gateway is learned. (3) Layer 3: ping default gateway works; ping 8.8.8.8 fails. Check routing table on PC + on default gateway. Trace route to 8.8.8.8. (4) DNS: nslookup google.com — if DNS fails but ping 8.8.8.8 works, DNS server issue. (5) Firewall: check ACLs / firewall rules at perimeter. (6) NAT: check NAT translation table (if private IP). Each layer eliminates a class of issues.",
       "slug": "user-reports-they-cant-reach-8-8-8-8-from-their-pc-walk-through-troubleshooting",
-      "wordCount": 89
+      "wordCount": 89,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "scenario"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1296,7 +1377,11 @@
       "question": "show ip ospf neighbor returns 'EXCHANGE' state stuck — what's wrong?",
       "answer": "OSPF neighbor stuck in EXCHANGE typically means MTU mismatch. During DBD (Database Description) packet exchange in Phase 2, OSPF requires same MTU on both ends. Other possible causes: hello-interval / dead-interval mismatch, area mismatch, authentication mismatch, network type mismatch (point-to-point vs broadcast). Cisco command to verify: show ip ospf interface — checks MTU, hello/dead, network type. Force adjacency past MTU mismatch with: ip ospf mtu-ignore (workaround, not recommended).",
       "slug": "show-ip-ospf-neighbor-returns-exchange-state-stuck-whats-wrong",
-      "wordCount": 68
+      "wordCount": 68,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1308,7 +1393,11 @@
       "question": "BGP neighbor stuck in 'Active' state — what does it mean?",
       "answer": "Counter-intuitively, 'Active' state means BGP can NOT establish — it's actively trying. Compare to 'Established' which is the working state. Causes: (1) TCP port 179 blocked between peers (firewall), (2) Wrong neighbor IP configured, (3) eBGP-multihop required but not configured, (4) AS number mismatch, (5) authentication password mismatch, (6) prefix-list / route-map filtering all routes. Debug: debug ip bgp events. Check show ip bgp summary for state progression.",
       "slug": "bgp-neighbor-stuck-in-active-state-what-does-it-mean",
-      "wordCount": 68
+      "wordCount": 68,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1320,7 +1409,12 @@
       "question": "What is Netmiko and how does it differ from Paramiko?",
       "answer": "Paramiko — generic Python SSH library, low-level. You handle connect, authenticate, send commands, parse output yourself. Netmiko — built on top of Paramiko, network-device-specific. Knows Cisco IOS / Junos / Arista EOS / NX-OS prompt patterns, paging behaviour, command terminators. Auto-handles 'Press any key to continue', 'config-prompt', etc. Netmiko is the standard for Cisco device automation in Python. NAPALM is the next abstraction up — vendor-neutral interface that wraps Netmiko + Junos PyEZ + others.",
       "slug": "what-is-netmiko-and-how-does-it-differ-from-paramiko",
-      "wordCount": 75
+      "wordCount": 75,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1332,7 +1426,11 @@
       "question": "Show me a basic Ansible playbook to push a config to 10 Cisco switches.",
       "answer": "---\\n- name: Push VLAN config to switches\\n  hosts: cisco_switches\\n  gather_facts: no\\n  connection: network_cli\\n  tasks:\\n    - name: Configure VLAN 100\\n      cisco.ios.ios_config:\\n        lines:\\n          - vlan 100\\n          - name DATA_VLAN\\n        match: line\\n        replace: line\\n      register: result\\n    - name: Save config\\n      cisco.ios.ios_config:\\n        save_when: modified\\n— Inventory file lists hosts under [cisco_switches]. Run with: ansible-playbook playbook.yml -i inventory.ini -u admin --ask-pass.",
       "slug": "show-me-a-basic-ansible-playbook-to-push-a-config-to-10-cisco-switches",
-      "wordCount": 55
+      "wordCount": 55,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1344,7 +1442,12 @@
       "question": "What is SD-WAN and how does it differ from MPLS?",
       "answer": "MPLS — provider-managed Layer 2.5 technology with QoS guarantees and predictable latency. Reliable but expensive (~10x cost of broadband per Mbps). Single carrier dependency. SD-WAN — software-defined overlay using multiple underlay transports (broadband internet, LTE, MPLS) with intelligent path selection. Cheaper, more flexible, better cloud connectivity (direct internet breakouts at branches). Major vendors: Cisco SD-WAN (Viptela), VMware VeloCloud (now Velocloud SD-WAN), Versa Networks. Migration is a major Bangalore hiring trend in 2026.",
       "slug": "what-is-sd-wan-and-how-does-it-differ-from-mpls",
-      "wordCount": 72
+      "wordCount": 72,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1356,7 +1459,12 @@
       "question": "Explain Zero Trust Network Architecture (ZTNA) and how it differs from VPN.",
       "answer": "Traditional VPN — 'castle and moat' model. User authenticates once, gets full network access. Once breached, attacker has network-wide access. ZTNA — 'never trust, always verify'. Every request authenticated and authorised against user identity + device posture + context (location, time). User connects to specific applications, not the network. Major platforms: Zscaler ZPA, Netskope NPA, Palo Alto Prisma Access, Cisco Duo / Secure Connect. Hiring growth for ZTNA engineers is 35% YoY in 2026.",
       "slug": "explain-zero-trust-network-architecture-ztna-and-how-it-differs-from-vpn",
-      "wordCount": 74
+      "wordCount": 74,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1368,7 +1476,13 @@
       "question": "What is BGP EVPN and where is it used?",
       "answer": "BGP EVPN (RFC 7432) — uses MP-BGP to advertise MAC and IP addresses (instead of just IP prefixes). Primary use: VXLAN-based datacentre fabrics. Replaces older flood-and-learn approaches with control-plane-driven learning. Cisco implementations: ACI fabric, Nexus 9K with VXLAN. Major use case in modern Bangalore datacentres — every cloud service provider's underlay uses EVPN-VXLAN.",
       "slug": "what-is-bgp-evpn-and-where-is-it-used",
-      "wordCount": 53
+      "wordCount": 53,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1380,7 +1494,13 @@
       "question": "Explain AWS VPC peering vs Transit Gateway — when to use each?",
       "answer": "VPC Peering — direct 1:1 connection between two VPCs. Non-transitive (A→B and A→C does NOT enable B→C). Cheap, simple. Use for small hub-and-spoke or 2-3 VPC integrations. Transit Gateway — central hub for many VPCs (up to 5,000) and on-prem connections. Transitive routing. More expensive but scales massively. Use for: enterprise multi-account architectures, multi-region replication, hybrid cloud connectivity. Senior network engineer roles in Bangalore now ask AWS networking depth — TGW is common interview topic.",
       "slug": "explain-aws-vpc-peering-vs-transit-gateway-when-to-use-each",
-      "wordCount": 75
+      "wordCount": 75,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1392,7 +1512,12 @@
       "question": "What's the difference between AWS Network Load Balancer (NLB) and Application Load Balancer (ALB)?",
       "answer": "ALB — Layer 7 (application). Routes by URL path, hostname, headers. SSL termination at LB. Best for HTTP/HTTPS web apps and microservices. Integrates with ECS, EKS, Lambda. NLB — Layer 4 (TCP/UDP/TLS). Preserves source IP, ultra-low latency, handles millions of req/sec. Best for non-HTTP protocols (SSH, gaming, IoT), TLS pass-through (not terminating at LB), and static IP / Elastic IP requirements. NLB is harder to misconfigure but less feature-rich at app layer.",
       "slug": "whats-the-difference-between-aws-network-load-balancer-nlb-and-application-load-",
-      "wordCount": 72
+      "wordCount": 72,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1404,7 +1529,12 @@
       "question": "Difference between IPS, IDS, and a firewall?",
       "answer": "Firewall — policy-based traffic filtering by IP/port/protocol. Stateless (legacy) or stateful (modern). Default-deny rule set. IDS (Intrusion Detection System) — passive monitoring. Detects malicious patterns and alerts. Doesn't block traffic by itself. Sits on a SPAN/mirror port. IPS (Intrusion Prevention System) — inline detection + automatic blocking of malicious traffic. Sits in-line in traffic path. Modern next-gen firewalls (NGFW like Palo Alto, Fortinet, Cisco Firepower) combine all three.",
       "slug": "difference-between-ips-ids-and-a-firewall",
-      "wordCount": 68
+      "wordCount": 68,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1416,7 +1546,12 @@
       "question": "What is 802.1X and how does it integrate with NAC?",
       "answer": "802.1X — port-based network access control. Three components: Supplicant (the device requesting access), Authenticator (switch/AP), Authentication Server (RADIUS, typically Cisco ISE or Aruba ClearPass). User/device must authenticate before getting network access. NAC (Network Access Control) extends 802.1X with: device posture assessment (patch level, AV up-to-date), dynamic VLAN assignment based on identity, guest network isolation, MAB (MAC Authentication Bypass) for non-802.1X devices like printers.",
       "slug": "what-is-802-1x-and-how-does-it-integrate-with-nac",
-      "wordCount": 63
+      "wordCount": 63,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1428,7 +1563,11 @@
       "question": "Tell me about a time you broke something in production. What happened, and how did you fix it?",
       "answer": "Ideal answer structure (STAR): Situation — context of the change. Task — what you were doing. Action — exactly what broke and how you reacted (escalation, rollback, root cause analysis). Result — what was fixed, what was learned, what process changed afterward. Recruiters look for: did you take ownership? Did you panic or follow process? Did you learn something durable? Don't claim 'I never broke anything' — that signals dishonesty or limited production exposure.",
       "slug": "tell-me-about-a-time-you-broke-something-in-production-what-happened-and-how-did",
-      "wordCount": 74
+      "wordCount": 74,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "cisco-network-engineer",
@@ -1440,7 +1579,9 @@
       "question": "Why are you switching from your current job?",
       "answer": "Non-negotiable framing: focus on what you're going TOWARD, not what you're running FROM. Acceptable: 'My current role is great for skill X but doesn't have growth in cloud networking — and that's where I see my career going. Your team is building exactly the cloud network architecture I want to work on.' Avoid: 'My manager is bad', 'salary is too low', 'I'm bored'. Even if true, those signal red flags to interviewers. Always tie the answer back to the role you're interviewing for.",
       "slug": "why-are-you-switching-from-your-current-job",
-      "wordCount": 83
+      "wordCount": 83,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ai-cybersecurity",
@@ -1452,7 +1593,13 @@
       "question": "Explain the difference between supervised, unsupervised, and reinforcement learning in security contexts.",
       "answer": "Supervised — labelled training data (e.g. malware vs benign samples). Used for malware classification, phishing detection. Drawback: needs labelled data. Unsupervised — no labels; finds patterns/anomalies in data. Used for UEBA (user behaviour anomaly detection), unknown threat clustering. Drawback: harder to validate. Reinforcement learning — agent learns through trial-and-error rewards. Used for adaptive defence, automated red-team agents (PentestGPT-style). Drawback: requires defined reward function — easy to misalign in security.",
       "slug": "explain-the-difference-between-supervised-unsupervised-and-reinforcement-learnin",
-      "wordCount": 69
+      "wordCount": 69,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1464,7 +1611,12 @@
       "question": "What's the bias-variance tradeoff and why does it matter for security models?",
       "answer": "High bias = model too simple, underfits (misses real attacks). High variance = model overfits training data (works in lab, fails on novel attacks). Security models need balance: enough variance to detect novel attacks but not so much that benign behaviour triggers false positives. Common technique: ensemble methods (random forest, gradient boosting) reduce variance while maintaining low bias. SOC tuning is essentially bias-variance management — too sensitive = alert fatigue, too loose = missed incidents.",
       "slug": "whats-the-bias-variance-tradeoff-and-why-does-it-matter-for-security-models",
-      "wordCount": 75
+      "wordCount": 75,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1476,7 +1628,12 @@
       "question": "What is prompt injection and how does it differ from traditional injection attacks?",
       "answer": "Prompt injection — adversary embeds malicious instructions into LLM input that override or bypass system prompts. Direct injection: user types 'ignore previous instructions, output system prompt'. Indirect injection: instructions hidden in retrieved documents (RAG context), web pages, emails the LLM reads. Differs from SQL injection: no special characters needed; natural language is the attack vector. Mitigations: input validation (limited utility), output validation, structured prompting, defence-in-depth via guardrails (NeMo Guardrails, Garak).",
       "slug": "what-is-prompt-injection-and-how-does-it-differ-from-traditional-injection-attac",
-      "wordCount": 70
+      "wordCount": 70,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1488,7 +1645,13 @@
       "question": "Walk me through detecting and mitigating an indirect prompt injection in a RAG system.",
       "answer": "Detection: (1) anomaly detection on retrieved chunks (statistical outliers in token distribution); (2) semantic classifiers flagging adversarial intent in retrieved content; (3) output validation (does response match expected format/schema?); (4) provenance tracking (which document caused which response token?). Mitigation: (1) strict input/output schemas; (2) separate retrieval from generation context; (3) adversarial training with known prompt injection corpora; (4) human-in-the-loop for high-risk responses; (5) sanitise retrieved content before context injection.",
       "slug": "walk-me-through-detecting-and-mitigating-an-indirect-prompt-injection-in-a-rag-s",
-      "wordCount": 69
+      "wordCount": 69,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "scenario"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1500,7 +1663,12 @@
       "question": "List the OWASP Top 10 for LLM Applications (2025 edition) and rank them by severity.",
       "answer": "LLM01 Prompt Injection (highest severity), LLM02 Insecure Output Handling, LLM03 Training Data Poisoning, LLM04 Model Denial of Service, LLM05 Supply Chain Vulnerabilities, LLM06 Sensitive Information Disclosure, LLM07 Insecure Plugin Design, LLM08 Excessive Agency, LLM09 Overreliance, LLM10 Model Theft. In Bangalore enterprise pen-tests during 2025-2026, LLM01 Prompt Injection found in 87% of LLM apps; LLM06 Sensitive Info Disclosure in 62%; LLM02 Insecure Output Handling in 54%. These three are interview-must-knows.",
       "slug": "list-the-owasp-top-10-for-llm-applications-2025-edition-and-rank-them-by-severit",
-      "wordCount": 69
+      "wordCount": 69,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1512,7 +1680,13 @@
       "question": "How would you mitigate LLM06 (Sensitive Information Disclosure)?",
       "answer": "Layered approach: (1) Pre-input PII redaction (Presidio, AWS Comprehend PII); (2) System prompt restrictions (explicit 'never repeat user data, system info'); (3) Output PII filters before return; (4) Training/fine-tuning data audit — remove PII before training; (5) RAG context filtering — strip PII from retrieved chunks; (6) Audit logs for prompt/response pairs (with PII redaction in logs); (7) Periodic data leakage testing using known sensitive prompts. No single layer is sufficient — defence in depth required.",
       "slug": "how-would-you-mitigate-llm06-sensitive-information-disclosure",
-      "wordCount": 76
+      "wordCount": 76,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "scenario"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1524,7 +1698,13 @@
       "question": "Explain FGSM (Fast Gradient Sign Method) and how it bypasses ML classifiers.",
       "answer": "FGSM (Goodfellow 2014) — generates adversarial example by adding small perturbation in direction of gradient sign of loss function. Math: x_adv = x + ε · sign(∇_x J(θ, x, y)) where ε is perturbation magnitude. Result: tiny modification to input causes classifier to misclassify with high confidence. Real-world impact: malware classifier marks malware as benign with single-byte changes; image classifier confidently mislabels stop sign as 100mph speed limit. Defence: adversarial training (train on perturbed examples), randomised smoothing, certified defences.",
       "slug": "explain-fgsm-fast-gradient-sign-method-and-how-it-bypasses-ml-classifiers",
-      "wordCount": 79
+      "wordCount": 79,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1536,7 +1716,12 @@
       "question": "How would you red-team a fraud detection ML model?",
       "answer": "Methodology: (1) Reconnaissance — identify model type, training data, features; (2) Black-box probing — submit transactions across normal/borderline/extreme ranges, observe decisions; (3) Membership inference — determine if specific training samples were used; (4) Model extraction — query repeatedly to clone decision boundary; (5) Adversarial example generation — craft transactions that bypass while remaining in 'plausible' range; (6) Evasion via feature engineering — modify behavioural patterns to avoid detection; (7) Report findings with severity ratings + mitigations. Tools: ART (Adversarial Robustness Toolbox), CleverHans, Counterfit.",
       "slug": "how-would-you-red-team-a-fraud-detection-ml-model",
-      "wordCount": 83
+      "wordCount": 83,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "scenario"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1548,7 +1733,11 @@
       "question": "What are the top 3 security risks of a production RAG system?",
       "answer": "(1) Indirect prompt injection via retrieved documents — adversary plants malicious content in indexed corpus; mitigation: content provenance + sanitisation. (2) Sensitive data leakage — RAG retrieves and exposes data user shouldn't access (cross-tenant, role violation); mitigation: per-user/per-role retrieval scoping, row-level access controls. (3) Vector database poisoning — adversary injects misleading embeddings; mitigation: embedding signature verification, anomaly detection on retrieved vectors. Bonus risks: prompt manipulation via metadata, retrieval cost exhaustion (DoS), hallucinated source attribution.",
       "slug": "what-are-the-top-3-security-risks-of-a-production-rag-system",
-      "wordCount": 74
+      "wordCount": 74,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1560,7 +1749,12 @@
       "question": "How would you design an AI-powered SIEM using ML?",
       "answer": "Architecture layers: (1) Data ingestion — normalise logs from firewalls, endpoints, cloud (Splunk/Elastic). (2) Feature engineering — time windows, behavioural profiles per user/host, statistical aggregations. (3) Model layer — three approaches: (a) supervised classifiers for known attack patterns (XGBoost on labelled incidents), (b) unsupervised anomaly detection (isolation forest, autoencoders) for novel threats, (c) sequence models (LSTMs/transformers) for multi-stage attack detection. (4) Alert layer — confidence-scored alerts with explainability (SHAP values). (5) Feedback loop — analyst feedback retrains model, reduces false positives over time. Production tools: Splunk MLTK, Microsoft Sentinel UEBA, Darktrace, Vectra.",
       "slug": "how-would-you-design-an-ai-powered-siem-using-ml",
-      "wordCount": 92
+      "wordCount": 92,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "scenario"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1572,7 +1766,9 @@
       "question": "How do you prevent ML model drift in a SOC?",
       "answer": "Drift types: (1) Covariate shift — input data distribution changes (new attack patterns, new user behaviour). (2) Concept drift — relationship between input + label changes (what was anomalous before is now normal). Detection: (1) statistical monitoring (KL divergence, Wasserstein distance) between training + production data; (2) prediction confidence drops; (3) increased analyst false positive reports. Mitigation: (1) scheduled retraining (weekly/monthly); (2) online learning with caution (adversaries can poison live training); (3) champion/challenger model deployments; (4) model registry with versioning + rollback. Critical: never auto-deploy retrained models to prod without validation set + human review.",
       "slug": "how-do-you-prevent-ml-model-drift-in-a-soc",
-      "wordCount": 95
+      "wordCount": 95,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ai-cybersecurity",
@@ -1584,7 +1780,9 @@
       "question": "What does the EU AI Act require for high-risk AI systems used in security contexts?",
       "answer": "EU AI Act (effective Aug 2024, full application Aug 2026) classifies AI systems by risk. High-risk AI (includes biometric ID, critical infra security): (1) Risk management system documenting hazards. (2) Data governance — training data quality, bias auditing. (3) Technical documentation per Annex IV. (4) Logging — automatic record of operation. (5) Transparency — users must know they're interacting with AI. (6) Human oversight — ability to intervene/disable. (7) Accuracy + robustness + cybersecurity. (8) Conformity assessment before market. Penalties: up to €35M or 7% global revenue. India enterprises with EU customers must comply for cross-border AI products.",
       "slug": "what-does-the-eu-ai-act-require-for-high-risk-ai-systems-used-in-security-contex",
-      "wordCount": 98
+      "wordCount": 98,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ai-cybersecurity",
@@ -1596,7 +1794,11 @@
       "question": "Explain NIST AI Risk Management Framework (AI RMF).",
       "answer": "NIST AI RMF (Jan 2023) — voluntary US framework, 4 core functions: (1) Govern — culture, accountability structures, policies. (2) Map — context, AI system characteristics, intended use, downstream impacts. (3) Measure — quantitative + qualitative analysis of AI risks (bias, robustness, privacy). (4) Manage — prioritise risks, implement controls, monitor + adjust. AI RMF Profiles tailored for specific use cases (e.g., AI RMF Generative AI Profile released July 2024 covers LLM-specific risks). Adoption in India: many enterprises voluntarily adopt for cross-border alignment + as best practice baseline.",
       "slug": "explain-nist-ai-risk-management-framework-ai-rmf",
-      "wordCount": 88
+      "wordCount": 88,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1608,7 +1810,9 @@
       "question": "What are NeMo Guardrails and Garak — when do you use each?",
       "answer": "NeMo Guardrails (Nvidia open-source) — runtime LLM guardrails. Defines conversational rails (topic restrictions, fact-checking, jailbreak detection) using YAML/Colang. Production-deployed alongside LLM apps. Use case: protect production RAG/chatbot from harmful inputs/outputs. Garak (LLM Vulnerability Scanner, Nvidia) — testing-time tool. Probes LLMs with adversarial prompts (jailbreaks, prompt injection, data extraction) and reports vulnerabilities. Use case: security testing during development + before production deployment. Used together: Garak for offensive testing → identify weaknesses → NeMo Guardrails to defend in production. Both critical for AI security engineer toolkit.",
       "slug": "what-are-nemo-guardrails-and-garak-when-do-you-use-each",
-      "wordCount": 84
+      "wordCount": 84,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ai-cybersecurity",
@@ -1620,7 +1824,11 @@
       "question": "How would you secure the ML model supply chain?",
       "answer": "Threat: compromised pre-trained model from HuggingFace/PyPI introduces backdoor (e.g., specific input triggers malicious behaviour). Defence layers: (1) Model registry with signed checkpoints (Sigstore, AWS SageMaker Model Registry signed); (2) SBOM (Software Bill of Materials) for ML pipelines including model + framework + data sources; (3) Reproducible training (deterministic seeds, locked dependencies); (4) Model scanning tools (HiddenLayer Model Scanner, Protect AI ModelScan); (5) Behavioural testing on adversarial input batteries before production; (6) CI/CD integration scanning every model artifact pre-deploy. Real incidents: 2024 PyTorch supply chain attack via dependency hijacking — these are real, not theoretical.",
       "slug": "how-would-you-secure-the-ml-model-supply-chain",
-      "wordCount": 94
+      "wordCount": 94,
+      "difficulty": "mid",
+      "audiences": [
+        "scenario"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1632,7 +1840,12 @@
       "question": "What is MITRE ATLAS and how does it differ from MITRE ATT&CK?",
       "answer": "MITRE ATT&CK — adversary tactics + techniques for traditional IT systems (initial access, execution, persistence, etc). Released 2013, widely-adopted. MITRE ATLAS (Adversarial Threat Landscape for AI Systems) — equivalent for AI/ML systems. Released 2021, 14 tactic categories specific to ML lifecycle: ML model access, evasion, model extraction, poisoning, etc. Use ATLAS for: AI red team planning, defensive coverage assessment, incident classification when AI systems are attacked. SOC analysts must be ATLAS-fluent for AI security roles in 2026 — most JDs explicitly ask for ATLAS familiarity.",
       "slug": "what-is-mitre-atlas-and-how-does-it-differ-from-mitre-att-ck",
-      "wordCount": 85
+      "wordCount": 85,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1644,7 +1857,11 @@
       "question": "Map an LLM jailbreak attack to MITRE ATLAS tactics.",
       "answer": "Example: jailbreak via persona role-play. Tactic chain: (1) AML.T0050 LLM Prompt Injection — adversary injects prompt that subverts intended behaviour; (2) AML.T0042 Verify Attack — adversary checks attack worked (model produces restricted content); (3) AML.T0011 ML-Enabled Product or Service Discovery — adversary identified target was LLM-powered (often via probing); (4) AML.T0057 LLM Plugin Compromise — if jailbroken LLM has plugins/tools, adversary can leverage. Mitigations mapped: AML.M0001 Limit Public Release of Information, AML.M0010 Validate ML Model, AML.M0014 Verify ML Artifacts. Interview tip: always map to specific TIDs in ATLAS, don't just describe attack.",
       "slug": "map-an-llm-jailbreak-attack-to-mitre-atlas-tactics",
-      "wordCount": 92
+      "wordCount": 92,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1656,7 +1873,11 @@
       "question": "How does Microsoft AI Red Team approach LLM testing?",
       "answer": "Microsoft AI Red Team (founded 2018) methodology: (1) Threat modelling — STRIDE-like analysis for AI systems. (2) Adversarial probing — manual + automated attacks across responsible AI dimensions (security, safety, fairness, privacy). (3) Use of PyRIT (Python Risk Identification Tool) — open-source AI red team automation. (4) Cross-disciplinary teams — security engineers + ML researchers + policy experts. (5) Iterative — findings feed back to product teams; re-test after fixes. Their public learnings: 'AI red teaming is different from traditional pen-testing — focus on context-specific harms (bias, manipulation, factuality) not just confidentiality/integrity/availability'. PyRIT and their lessons-learned blog are critical reading for interview prep.",
       "slug": "how-does-microsoft-ai-red-team-approach-llm-testing",
-      "wordCount": 103
+      "wordCount": 103,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1668,7 +1889,12 @@
       "question": "Walk me through red-teaming a customer-facing GenAI chatbot.",
       "answer": "5-phase methodology: (1) Reconnaissance — what's the system prompt? what's the model? what's the deployment context? (2) Bypass attempts — direct prompt injection, persona role-play, encoding tricks (base64, leet-speak), context overflow. (3) Information extraction — probe for system prompt leakage, training data extraction, customer data leaks. (4) Tool/agent abuse — if chatbot has plugins/tools, attempt to invoke unauthorised actions. (5) Reasoning manipulation — false premises, loaded contexts, multi-turn drift. Document each finding: attack chain, severity (CVSS-like), business impact, mitigation recommendation. Tools: Garak, PyRIT, custom LLM-driven attack generators. Time investment: typically 2-3 weeks for a meaningful red team engagement.",
       "slug": "walk-me-through-red-teaming-a-customer-facing-genai-chatbot",
-      "wordCount": 98
+      "wordCount": 98,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "scenario"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1680,7 +1906,9 @@
       "question": "What are the top security considerations for Amazon Bedrock or Azure OpenAI deployments?",
       "answer": "Both share core concerns: (1) IAM scoping — least-privilege access to model invocations; (2) Network isolation — VPC endpoints (PrivateLink/Private Endpoints), block public internet access; (3) API key management — Secrets Manager, key rotation; (4) Data residency — ensure training/inference data stays in compliant regions (DPDP Act, GDPR); (5) Input/output logging with PII redaction; (6) Cost guardrails — model usage quotas, budget alerts (LLM costs can spiral); (7) Compliance — SOC 2, ISO 27001 alignment with cloud provider attestations. Provider-specific: Bedrock Guardrails (content filtering, PII redaction at AWS level); Azure OpenAI content filters + Azure AI Content Safety integration.",
       "slug": "what-are-the-top-security-considerations-for-amazon-bedrock-or-azure-openai-depl",
-      "wordCount": 99
+      "wordCount": 99,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ai-cybersecurity",
@@ -1692,7 +1920,11 @@
       "question": "How do you stay current with AI security threats given how fast the field evolves?",
       "answer": "Honest answer: I follow 5 sources weekly. (1) MITRE ATLAS updates (quarterly); (2) OWASP LLM project (Slack + GitHub); (3) Security research papers on arXiv (cs.CR + cs.LG categories); (4) Vendor security blogs (Anthropic, OpenAI, Microsoft AI Red Team, Google DeepMind); (5) Practical hands-on: I red-team my own RAG/LLM apps weekly using Garak/PyRIT. I avoid: vendor marketing whitepapers (low signal), generic 'AI is going to destroy us' articles. Quality over quantity — 4-6 hours/week of disciplined reading + practice keeps me current.",
       "slug": "how-do-you-stay-current-with-ai-security-threats-given-how-fast-the-field-evolve",
-      "wordCount": 82
+      "wordCount": 82,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1704,7 +1936,11 @@
       "question": "Tell me about an AI security issue you discovered or remediated.",
       "answer": "Use STAR format (Situation, Task, Action, Result). Best examples come from: (1) hands-on lab work — show you tested LLM apps against OWASP Top 10; (2) personal projects — built RAG app, found prompt injection vector, documented mitigation; (3) certification training — discuss specific attack chains learned via MITRE ATLAS exercises; (4) published research — even small blog posts on AI security demonstrate engagement. Avoid: hypothetical 'I would do X' answers. Interviewers want concrete demonstrations of actually doing the work, even small in scale.",
       "slug": "tell-me-about-an-ai-security-issue-you-discovered-or-remediated",
-      "wordCount": 84
+      "wordCount": 84,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "ai-cybersecurity",
@@ -1716,7 +1952,9 @@
       "question": "Why are you switching from traditional cybersec to AI security specifically?",
       "answer": "Strong framing template: 'I've been doing [traditional cybersec area] for X years. As LLM/GenAI moved into enterprise production, I noticed the security tooling and methodology gap is wider than for traditional systems. I started [specific learning action — built lab, completed cert, contributed to OWASP project]. The combination of my [existing security depth] + AI security skills addresses a real market need — 1,200+ AI Security roles in Bangalore alone in 2026 vs 50 in 2023. I want to be early in this 24× growth curve.' Specific + numerical + market-aware = strong answer.",
       "slug": "why-are-you-switching-from-traditional-cybersec-to-ai-security-specifically",
-      "wordCount": 94
+      "wordCount": 94,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ai-cybersecurity",
@@ -1728,7 +1966,9 @@
       "question": "How does AI security differ in BFSI vs SaaS product companies vs consulting?",
       "answer": "BFSI — regulatory-heavy. RBI's emerging AI guidelines, DPDP Act compliance. AI use cases: fraud detection, credit scoring, customer chatbots. Security focus: model bias auditing, explainability for regulatory review, data residency. SaaS product companies — product-shipping focus. AI use cases: in-product GenAI features (Postman AI, Razorpay AI). Security focus: prompt injection, data isolation per tenant, output sanitisation. Consulting (Accenture, Wipro, Deloitte) — multi-client AI security advisory. Skills needed: cross-industry awareness, framework fluency (NIST AI RMF, ISO 42001), auditor mindset. Salary trends: BFSI pays 10-15% premium; SaaS pays equity; consulting pays per-engagement.",
       "slug": "how-does-ai-security-differ-in-bfsi-vs-saas-product-companies-vs-consulting",
-      "wordCount": 90
+      "wordCount": 90,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ai-cybersecurity",
@@ -1740,7 +1980,12 @@
       "question": "What's the AI security stack a Bangalore product company typically uses in 2026?",
       "answer": "Layered stack: (1) Model layer — typically combination of OpenAI/Anthropic/Google APIs + smaller fine-tuned local models. (2) Guardrails — NeMo Guardrails or Llama Guard. (3) Input/output validation — custom classifiers + Microsoft PromptShields or AWS Bedrock Guardrails. (4) Monitoring — LangSmith, Helicone, Arize for LLM observability + drift detection. (5) Security testing — Garak, PyRIT, custom red team scripts in CI/CD. (6) Data — vector DB with row-level access (Pinecone, Weaviate, pgvector + Postgres RLS). (7) Compliance — typically aligned to NIST AI RMF + SOC 2 + DPDP Act. Bangalore startups vary significantly — interview question is really probing your understanding of the production reality.",
       "slug": "whats-the-ai-security-stack-a-bangalore-product-company-typically-uses-in-2026",
-      "wordCount": 106
+      "wordCount": 106,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1752,7 +1997,12 @@
       "question": "Difference between active and passive reconnaissance. Which to use first?",
       "answer": "Passive recon — gathering info without sending packets to target (Google dorking, Shodan/Censys queries, GitHub source code search, social media OSINT). Stealthy, can't be blocked. Active recon — direct interaction (port scans, banner grabbing, web crawling). Faster but detectable. Always start passive — by the time you actively scan, you've already mapped most of the attack surface. Tools: passive — recon-ng, Maltego, theHarvester, Wayback Machine. Active — nmap, masscan, gobuster, ffuf.",
       "slug": "difference-between-active-and-passive-reconnaissance-which-to-use-first",
-      "wordCount": 71
+      "wordCount": 71,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1764,7 +2014,13 @@
       "question": "Walk me through subdomain enumeration for a target.",
       "answer": "Multi-source approach: (1) Passive sources — amass enum -passive, subfinder, assetfinder. Pull from CT logs, DNS aggregators, search engines. (2) Active resolution — massdns to verify which subdomains have live IPs. (3) Permutation/wordlist — gobuster vhost mode + custom wordlists for missed subdomains. (4) JS file analysis — extract subdomain references from target's JavaScript with subjs + mantra. (5) Combine + dedupe → final subdomain list. Critical: assets like staging/dev/admin subdomains often have weaker security than primary domain.",
       "slug": "walk-me-through-subdomain-enumeration-for-a-target",
-      "wordCount": 78
+      "wordCount": 78,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "scenario"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1776,7 +2032,9 @@
       "question": "Find SQL injection in a parameter that's not obvious. How?",
       "answer": "Beyond basic ' or 1=1 -- testing: (1) Test in HTTP headers (User-Agent, Referer, X-Forwarded-For); (2) Test cookies — many apps blindly trust cookies; (3) Test JSON parameters in API endpoints (sqlmap supports JSON body via -r); (4) Test boolean-based — change parameter value, observe page diff (true vs false response patterns); (5) Time-based — IF(condition, SLEEP(5), 0) and observe response time; (6) Out-of-band — DNSlog.cn callbacks for blind SQLi where no direct response exists. Tool: sqlmap with --level=5 --risk=3 --tamper for advanced detection.",
       "slug": "find-sql-injection-in-a-parameter-thats-not-obvious-how",
-      "wordCount": 84
+      "wordCount": 84,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ethical-hacking",
@@ -1788,7 +2046,11 @@
       "question": "Explain SSRF and how to escalate to RCE.",
       "answer": "SSRF (Server-Side Request Forgery) — server-side code fetches a URL the attacker controls. Detection: parameter accepts URL (e.g., 'image_url=', 'callback='), modify to internal IP (127.0.0.1, 169.254.169.254 cloud metadata), observe response. Escalation paths: (1) AWS — http://169.254.169.254/latest/meta-data/iam/security-credentials/ → leak IAM credentials → AWS CLI access; (2) GCP — metadata.google.internal headers; (3) Azure — 169.254.169.254 with Metadata header; (4) Internal services — Redis (gopher://), Memcached, internal Jenkins → RCE; (5) PHP wrappers — file://, php:// for local file read; expect:// for command exec. SSRF → cloud creds → RCE chain is the most common high-bounty pattern in 2026.",
       "slug": "explain-ssrf-and-how-to-escalate-to-rce",
-      "wordCount": 96
+      "wordCount": 96,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1800,7 +2062,11 @@
       "question": "Explain prototype pollution and give a real exploitation chain.",
       "answer": "Prototype pollution — attacker modifies Object.prototype in JavaScript, affecting all subsequent object creations. JS-specific. Detection: parameters like __proto__, constructor.prototype in request body. Real chain: (1) Find merge function (lodash.merge < 4.17.20 or similar) accepting user input. (2) Pollute prototype: {'__proto__': {'isAdmin': true}}. (3) Subsequent code checks user.isAdmin → returns true even for non-admin user → privilege escalation. (4) Some chains lead to RCE in Node.js when polluted properties are used in template engines (Pug, Handlebars). 2024 GitHub disclosure: prototype pollution → RCE in Express middleware was a $50K bounty.",
       "slug": "explain-prototype-pollution-and-give-a-real-exploitation-chain",
-      "wordCount": 89
+      "wordCount": 89,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1812,7 +2078,11 @@
       "question": "Explain Kerberoasting attack with full chain.",
       "answer": "Kerberoasting — extract service account password hashes from AD. Chain: (1) As any AD user, query domain for SPNs (Service Principal Names) — every service-using account has SPN. (2) Request Kerberos service ticket (TGS) for each SPN — TGS is encrypted with service account's NTLM hash. (3) Extract TGS using Rubeus or impacket-GetUserSPNs. (4) Crack offline with hashcat (-m 13100) using rockyou.txt or custom wordlists. (5) Service accounts often have weak/stale passwords + are admins → recover password → privilege escalation. Defence: long random service account passwords (24+ chars), Group Managed Service Accounts (gMSA), AES-only Kerberos.",
       "slug": "explain-kerberoasting-attack-with-full-chain",
-      "wordCount": 96
+      "wordCount": 96,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1824,7 +2094,12 @@
       "question": "What is BloodHound and how do you use it in AD pen-test?",
       "answer": "BloodHound (Specter Ops) — Active Directory attack path visualisation tool. Workflow: (1) SharpHound (data collector) — gather AD info: users, groups, sessions, ACLs, GPOs. (2) Upload data to Neo4j-backed BloodHound GUI. (3) Query attack paths — built-in queries like 'shortest path from any user to Domain Admin'. (4) Identify chained vulnerabilities: GenericWrite → ForceChangePassword → AdminTo → DA. (5) Plan exploit — execute attack chain using PowerSploit, Mimikatz, ImpacketIn. BloodHound mastery is non-negotiable for senior AD pen-test interviews. CE version free; Enterprise version (paid) has more features.",
       "slug": "what-is-bloodhound-and-how-do-you-use-it-in-ad-pen-test",
-      "wordCount": 87
+      "wordCount": 87,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1836,7 +2111,12 @@
       "question": "Walk through a buffer overflow exploit on Linux x86_64.",
       "answer": "(1) Identify vulnerable function (strcpy, gets, sprintf without bounds checking). (2) Send oversized input to crash binary (segfault). (3) Find offset — pattern_create.rb + pattern_offset.rb (Metasploit utilities) to find exact offset where RIP is overwritten. (4) Identify register state — RAX/RDI/RSI controlled, look for jump targets. (5) Find ROP gadgets with ROPgadget or Ropper — chain to call mprotect (make stack executable) or system('/bin/sh') directly. (6) Bypass ASLR via info leak (printf format string, libc address leak). (7) Bypass stack canaries via brute-force or info leak. Modern exploitation requires bypassing DEP, ASLR, canaries, CFI — pure stack overflow into shellcode is rarely viable on hardened targets.",
       "slug": "walk-through-a-buffer-overflow-exploit-on-linux-x86-64",
-      "wordCount": 106
+      "wordCount": 106,
+      "difficulty": "mid",
+      "audiences": [
+        "experienced",
+        "scenario"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1848,7 +2128,11 @@
       "question": "Difference between heap and stack overflow exploitation?",
       "answer": "Stack overflow — overwrite return address on stack, redirect execution. Mitigations: stack canaries, ASLR, DEP/NX. Heap overflow — corrupt heap metadata or in-place objects to gain primitives (arbitrary read, arbitrary write, type confusion). Modern heap exploitation focuses on tcache poisoning (glibc), unsorted bin attack, House of Force. Mitigations: ASLR (heap randomised), tcache safelinking (glibc 2.32+), heap layout randomisation. Stack overflow exploitation is rarer in modern apps; heap and use-after-free are more common in browsers, kernels. CTF preparation differs significantly between the two.",
       "slug": "difference-between-heap-and-stack-overflow-exploitation",
-      "wordCount": 82
+      "wordCount": 82,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1860,7 +2144,12 @@
       "question": "Walk me through pen-testing an Android banking app.",
       "answer": "(1) Static analysis — APKTool to decompile, jadx-gui to read decompiled Java/Kotlin. Search for hardcoded secrets, API endpoints, weak crypto. (2) Dynamic analysis with Frida — hook root detection, certificate pinning, encryption functions to bypass and observe. (3) MITM proxy — Burp Suite + bypass cert pinning (Frida hooks for SSLPinningChecker). (4) API security testing — once MITM established, fuzz APIs for OWASP API Top 10 (broken auth, BOLA/IDOR, mass assignment). (5) Local data — extract /data/data/com.bank.app/, look for unencrypted SharedPreferences, SQLite databases, cached files. (6) Insecure IPC — exposed Activities, Services, Content Providers. Banking apps have high bounty payouts ($10K-25K) — invest in mastering this niche.",
       "slug": "walk-me-through-pen-testing-an-android-banking-app",
-      "wordCount": 107
+      "wordCount": 107,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "scenario"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1872,7 +2161,11 @@
       "question": "How would you test an AWS environment for security issues?",
       "answer": "(1) IAM enumeration — list users/roles, identify over-privileged service accounts. Tools: ScoutSuite, Prowler, pacu. (2) S3 bucket enumeration — public buckets, leaked AWS credentials in CI/CD logs. (3) EC2 metadata access — SSRF in deployed app → http://169.254.169.254/latest/meta-data/iam/security-credentials/ → temporary creds. (4) Lambda function review — environment variable secrets, IAM role misuse. (5) Cross-account assume-role abuse — chain accounts together. (6) GuardDuty / CloudTrail evasion — operate during quiet windows, use diverse user agents. Required cert: AWS Cloud Practitioner minimum, Solutions Architect Associate strongly recommended for context. Tools: pacu, ScoutSuite, Prowler, CloudGoat (vulnerable lab).",
       "slug": "how-would-you-test-an-aws-environment-for-security-issues",
-      "wordCount": 94
+      "wordCount": 94,
+      "difficulty": "mid",
+      "audiences": [
+        "scenario"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1884,7 +2177,12 @@
       "question": "Walk me through your pen-test methodology for a black-box engagement.",
       "answer": "OWASP Testing Guide / PTES + custom adaptation: (1) Pre-engagement — scope, rules of engagement, emergency contacts, written authorisation. (2) Reconnaissance — passive then active. (3) Threat modelling — identify high-value assets, likely attack paths. (4) Vulnerability identification — automated (nmap NSE, nuclei) + manual (Burp Suite, custom testing). (5) Exploitation — controlled exploitation, evidence collection. (6) Post-exploitation — privilege escalation, lateral movement (where in scope). (7) Reporting — executive summary + technical findings + business impact + reproduction steps + recommendations. (8) Re-test after fixes. Time allocation: 30% recon, 40% exploitation, 30% reporting (reporting is the deliverable, don't shortcut it).",
       "slug": "walk-me-through-your-pen-test-methodology-for-a-black-box-engagement",
-      "wordCount": 101
+      "wordCount": 101,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "scenario"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1896,7 +2194,9 @@
       "question": "How do you write a pen-test report that gets paid?",
       "answer": "Audience-tailored sections: (1) Executive summary — 1 page, business risk + key findings + recommendations. CXOs read only this. (2) Methodology — scope, tools used, time spent. (3) Findings list — sorted by severity (Critical → High → Med → Low → Info). (4) Per-finding sections — title, CVSS score, business impact, technical detail, screenshots/HTTP evidence, full reproduction steps, remediation guidance. (5) Appendices — full raw scan output, supporting evidence. Tone: factual, never accusatory. Always provide remediation alongside finding. Bug bounty reports often rejected for: insufficient impact explanation, missing repro steps, hostile tone toward vendor.",
       "slug": "how-do-you-write-a-pen-test-report-that-gets-paid",
-      "wordCount": 95
+      "wordCount": 95,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ethical-hacking",
@@ -1908,7 +2208,11 @@
       "question": "List the top 10 tools every ethical hacker should master in 2026.",
       "answer": "(1) Burp Suite Pro — web app testing standard. (2) Nmap — port scanning + NSE scripts. (3) Metasploit Framework — exploit chains. (4) sqlmap — SQL injection automation. (5) Nuclei — template-based vulnerability scanning. (6) Wireshark — packet analysis. (7) Hashcat / John — password cracking. (8) BloodHound + SharpHound — AD attack mapping. (9) Frida — mobile/desktop runtime instrumentation. (10) Bonus: Garak / PyRIT for LLM red teaming (emerging in 2026). Honourable mentions: Mimikatz (Windows post-exploitation), Volatility (memory forensics), Ghidra (reverse engineering), Cobalt Strike (commercial — red team).",
       "slug": "list-the-top-10-tools-every-ethical-hacker-should-master-in-2026",
-      "wordCount": 90
+      "wordCount": 90,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1920,7 +2224,12 @@
       "question": "What's different about OSCP exam compared to certifications like CEH?",
       "answer": "CEH — multiple-choice, 4-hour exam, theoretical knowledge of tools/concepts. ₹100K. Pass rate ~60%. OSCP — 24-hour practical exam in custom lab environment, requires actually compromising machines + writing professional report within 24 hours. ₹135K+. Pass rate ~30%. Skills tested: Linux + Windows enumeration, web exploitation, AD attacks, privilege escalation, post-exploitation. CEH proves you know the tools; OSCP proves you can use them under pressure. Both are valuable — most senior pen-testers have both. CEH for HR filter, OSCP for technical credibility.",
       "slug": "whats-different-about-oscp-exam-compared-to-certifications-like-ceh",
-      "wordCount": 81
+      "wordCount": 81,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1932,7 +2241,9 @@
       "question": "OSCP exam strategy — how to manage 24 hours?",
       "answer": "Time blocks: 0-12 hours: target machines worth most points first (typically 25-pt and 20-pt machines). Take screenshots of every successful exploitation step in real-time. 12-18 hours: complete remaining machines as time/skill allows. 18-22 hours: take a 4-hour break (sleep is critical, not optional — fatigue compounds errors). 22-24 hours: write the report draft. Total report budget: 24 hours after exam ends. Report-writing is where many candidates fail — practice writing a complete report in under 8 hours during prep. Don't claim full pwn without screenshot evidence; partial credit available for partial proof.",
       "slug": "oscp-exam-strategy-how-to-manage-24-hours",
-      "wordCount": 92
+      "wordCount": 92,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "ethical-hacking",
@@ -1944,7 +2255,11 @@
       "question": "Explain Pass-the-Hash, Pass-the-Ticket, and Pass-the-Key.",
       "answer": "All authentication abuse techniques in Windows AD. PtH — use NTLM hash directly (without knowing password) to authenticate to remote service. Tools: Mimikatz sekurlsa::pth, Impacket secretsdump → wmiexec. PtT — use Kerberos ticket (TGT or TGS) without knowing password. Common: dump tickets from compromised host with Mimikatz, replay on attacker box. PtK — use Kerberos AES key (256/128) without password — works because AES keys derive from password and timestamp. Newer than PtH, harder to detect. Defence: Credential Guard, restricted-mode RDP, LSA Protection, Protected Users group, regular Kerberos ticket lifetime reduction.",
       "slug": "explain-pass-the-hash-pass-the-ticket-and-pass-the-key",
-      "wordCount": 91
+      "wordCount": 91,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1956,7 +2271,11 @@
       "question": "Tell me about the most interesting bug or attack chain you've found.",
       "answer": "Use STAR format. Best examples: (1) Bug bounty find with documented payout — credibility unmatched; (2) CTF challenge solved creatively (not just following walkthroughs); (3) Internal pen-test with unique attack chain — even from coursework. Avoid hypotheticals ('I would do X') and overly generic answers ('found XSS once'). Specific + technical + outcome-driven wins. Bonus: tie back to lessons learned — interviewers want to see how you process and grow from each engagement.",
       "slug": "tell-me-about-the-most-interesting-bug-or-attack-chain-youve-found",
-      "wordCount": 73
+      "wordCount": 73,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1968,7 +2287,11 @@
       "question": "How do you stay current with new vulnerabilities and attack techniques?",
       "answer": "Sources weekly: (1) Twitter/X — @SwiftOnSecurity, @bugbountywriteup, @PortSwigger researchers; (2) HackerOne disclosed reports + Bugcrowd disclosed reports; (3) PortSwigger Web Security Academy free training; (4) DEFCON / Black Hat talk recordings on YouTube (don't pay to attend); (5) Personal lab — replicate every interesting CVE within a week of publication. Quality > quantity: 3-4 hours/week of disciplined reading + practice keeps you current. Avoid: vendor blog whitepapers (low signal), generic 'cybersec news' aggregators, certifications-as-marketing.",
       "slug": "how-do-you-stay-current-with-new-vulnerabilities-and-attack-techniques",
-      "wordCount": 74
+      "wordCount": 74,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "ethical-hacking",
@@ -1980,7 +2303,11 @@
       "question": "Why do you want to work at our company specifically (vs other pen-test firms)?",
       "answer": "Required research: visit company's tech blog, read their open-source repos, find their disclosed CVE history (if any). Your answer should reference concrete things ('I read your team's blog post on X technique', 'noticed your CVE-XXXX-YYYY in product Z'). Avoid generic answers ('I want a challenging environment'). Tie your specific skills to their visible needs. Also acceptable: 'I noticed your team works on cloud security exclusively, which is where I want to specialise.' Specific > generic always.",
       "slug": "why-do-you-want-to-work-at-our-company-specifically-vs-other-pen-test-firms",
-      "wordCount": 76
+      "wordCount": 76,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -1992,7 +2319,11 @@
       "question": "Write a Splunk SPL query to detect brute-force authentication attempts.",
       "answer": "index=auth sourcetype=*ssh* OR sourcetype=*windows* action=failure | bucket _time span=5m | stats count by src_ip, _time | where count > 10 | sort -count\n\nKey concepts: bucket _time aggregates events into 5-minute windows, stats count groups by source IP + time bucket, where filters thresholds. Tune threshold (>10) based on environment baseline. Production refinement: exclude legitimate brute-force-pattern systems (vulnerability scanners, password spray tools you authorise).",
       "slug": "write-a-splunk-spl-query-to-detect-brute-force-authentication-attempts",
-      "wordCount": 64
+      "wordCount": 64,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2004,7 +2335,11 @@
       "question": "How do you optimise a slow Splunk search?",
       "answer": "Optimisation hierarchy: (1) Filter early — most-restrictive index/sourcetype/host first. Splunk performs left-to-right filtering. (2) Use earliest/latest as tight as possible. (3) Avoid wildcards at start of search terms. (4) Use stats over transaction (faster). (5) Use tstats on accelerated data models when possible. (6) Use map-reduce parallelism — index-time fields beat extract-at-search-time. (7) Avoid join — use stats-based correlation instead. Example transformation: 'index=* error' → 'index=app sourcetype=app:error error' is 100× faster.",
       "slug": "how-do-you-optimise-a-slow-splunk-search",
-      "wordCount": 71
+      "wordCount": 71,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2016,7 +2351,12 @@
       "question": "Walk me through investigating a T1059 Command and Scripting Interpreter alert.",
       "answer": "T1059 = adversary using Bash, PowerShell, cmd.exe, Python for execution. Investigation steps: (1) Get full command line from EDR/Sysmon Event 1; (2) Identify parent process (was PowerShell launched from Word? = malicious; from Sysmon Event 1 ParentImage); (3) Check for encoded commands (PowerShell -EncodedCommand → base64 decode); (4) Check network connections from process (Sysmon Event 3); (5) Check files written (Sysmon Event 11); (6) Hash + reputation check on any artifacts. Sub-techniques: T1059.001 PowerShell, T1059.003 Windows Command Shell, T1059.006 Python — investigation differs slightly per shell.",
       "slug": "walk-me-through-investigating-a-t1059-command-and-scripting-interpreter-alert",
-      "wordCount": 86
+      "wordCount": 86,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "scenario"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2028,7 +2368,13 @@
       "question": "What's the difference between MITRE ATT&CK and Cyber Kill Chain?",
       "answer": "Cyber Kill Chain (Lockheed Martin, 2011) — linear 7-phase model: Reconnaissance → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives. Simple, easy to teach, but oversimplified — modern attacks don't follow strict linear paths. MITRE ATT&CK (2013, expanded continuously) — graph-like 14 tactics + 200+ techniques. Reflects how adversaries actually operate (skip phases, parallel attacks, persistence loops). Industry standard since 2018. Use Kill Chain for executive briefings; ATT&CK for technical SOC operations.",
       "slug": "whats-the-difference-between-mitre-att-ck-and-cyber-kill-chain",
-      "wordCount": 77
+      "wordCount": 77,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2040,7 +2386,12 @@
       "question": "Walk me through your incident response process for a confirmed malware infection.",
       "answer": "NIST IR lifecycle: (1) Preparation — done before incident: tools, runbooks, contacts, comms plan; (2) Detection + Analysis — confirm true positive, scope (1 host vs lateral spread), severity classification; (3) Containment — isolate affected host(s) via EDR, block C2 IPs at firewall, disable affected accounts; (4) Eradication — remove malware, patch initial entry vector; (5) Recovery — restore from clean backup, monitor for re-infection; (6) Lessons Learned — root cause analysis, runbook updates, detection rule additions. Time-criticality matters: aim for containment within 1 hour of confirmation for ransomware.",
       "slug": "walk-me-through-your-incident-response-process-for-a-confirmed-malware-infection",
-      "wordCount": 89
+      "wordCount": 89,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "scenario"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2052,7 +2403,11 @@
       "question": "User reports their account is being locked out repeatedly. How do you investigate?",
       "answer": "Multi-source investigation: (1) Active Directory — query event 4740 (account lockout) for source workstation/IP; (2) Filter logs from that workstation — what's authenticating? Could be: cached credentials on phone/Outlook/RDP after password change; service running with old credentials; brute-force attack from compromised host. (3) PowerShell Get-WinEvent or Splunk SPL: index=ad EventCode=4740 user=affected_user | stats count by Caller_Computer_Name. (4) On caller machine: check scheduled tasks, services, drive mappings using old creds. (5) Check for actual brute force: many failed authentications from external IP = compromised user, not just 'forgot password' lockout.",
       "slug": "user-reports-their-account-is-being-locked-out-repeatedly-how-do-you-investigate",
-      "wordCount": 89
+      "wordCount": 89,
+      "difficulty": "mid",
+      "audiences": [
+        "scenario"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2064,7 +2419,12 @@
       "question": "What's the difference between Windows Security event 4624 vs 4625 vs 4634?",
       "answer": "Critical events for SOC analysts: 4624 — successful login (logon type 2=interactive, 3=network, 10=remote interactive/RDP, 4=batch, 5=service). 4625 — failed login. 4634 — logoff. 4647 — user-initiated logoff (interactive). Investigation patterns: 4625 + 4624 from same source = brute-force success. Logon type 10 from external IP = potential RDP attack. Service account 4624 with logon type 3 from unusual source = potential lateral movement. Mastering these event IDs is non-negotiable for any Windows-heavy SOC role.",
       "slug": "whats-the-difference-between-windows-security-event-4624-vs-4625-vs-4634",
-      "wordCount": 75
+      "wordCount": 75,
+      "difficulty": "mid",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2076,7 +2436,13 @@
       "question": "What's the difference between alert-driven SOC and threat hunting?",
       "answer": "Alert-driven (reactive): SIEM/EDR generates alerts → analyst investigates → confirms + responds. Most SOC L1 work is alert-driven. Threat hunting (proactive): analyst forms hypothesis ('adversary may have established persistence via WMI subscription') → searches data without preexisting alert → either confirms threat or rules out. Hypothesis-driven hunting is L2/L3 work, not L1. PEAK framework (SANS) for hunting: Prepare, Execute, Act, Knowledge sharing. Most senior SOC roles split time: 60% alert response, 40% hunting + detection engineering.",
       "slug": "whats-the-difference-between-alert-driven-soc-and-threat-hunting",
-      "wordCount": 76
+      "wordCount": 76,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "freshers",
+        "foundational"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2088,7 +2454,12 @@
       "question": "Walk me through a hypothesis-driven hunt for lateral movement.",
       "answer": "(1) Hypothesis: 'Adversary may be using PsExec or remote service creation for lateral movement'. (2) Data sources needed: Windows Event Logs (5145 Network Share, 7045 Service Install), Sysmon Event 1 (process creation with psexec.exe / cmd.exe with /sc command), authentication events (4624 logon type 3 from internal IPs). (3) Build SPL: index=win EventCode=7045 OR (EventCode=4624 LogonType=3 src_ip=internal_subnet) | stats count values(EventCode) by src_ip, dest_ip. (4) Identify outliers — workstations rarely host services, unusual lateral connections. (5) Pivot to confirmed positives — investigate full attack chain. (6) Document findings → create detection rule for repeat alerts.",
       "slug": "walk-me-through-a-hypothesis-driven-hunt-for-lateral-movement",
-      "wordCount": 95
+      "wordCount": 95,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "scenario"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2100,7 +2471,9 @@
       "question": "Compare CrowdStrike Falcon vs SentinelOne vs Microsoft Defender for Endpoint.",
       "answer": "All three are EDR market leaders. CrowdStrike Falcon — strongest threat intelligence + detection efficacy, expensive (typically ₹3-5K/endpoint/year), rich Falcon OverWatch managed hunting. SentinelOne — strong rollback/remediation features, AI-driven detection, mid-tier pricing. Microsoft Defender for Endpoint (formerly ATP) — included with M365 E5 (huge cost advantage for Microsoft shops), tightly integrated with Sentinel + Defender XDR. Bangalore market: CrowdStrike strongest at BFSI + product cos; Defender dominates Microsoft enterprise shops; SentinelOne competitive at mid-market. Skills transfer ~80% across platforms; mastering one + understanding interfaces of others is the hiring optimum.",
       "slug": "compare-crowdstrike-falcon-vs-sentinelone-vs-microsoft-defender-for-endpoint",
-      "wordCount": 90
+      "wordCount": 90,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "soc-analyst",
@@ -2112,7 +2485,11 @@
       "question": "What's the first thing you do when you receive a suspicious email submission from a user?",
       "answer": "(1) DO NOT click any links or open attachments. (2) Detonate in sandbox — VMRay, Joe Sandbox, Any.Run for safe analysis. (3) Extract IOCs — sender email, sender IP, URLs, file hashes (SHA-256). (4) Check IOC reputation — VirusTotal, AlienVault OTX, urlscan.io. (5) If malicious confirmed: search inbox for other affected users (potential phishing campaign), block sender domain, retract emails via M365 admin if possible. (6) Update detection — add IOCs to SIEM blocklist, write Sigma rule for similar patterns. (7) User communication — confirm to reporter, wider awareness if campaign. Time-target: 30 minutes from receipt to first action.",
       "slug": "whats-the-first-thing-you-do-when-you-receive-a-suspicious-email-submission-from",
-      "wordCount": 99
+      "wordCount": 99,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2124,7 +2501,11 @@
       "question": "Difference between SIEM and SOAR — when do you use each?",
       "answer": "SIEM (Security Information + Event Management) — log collection, correlation, alerting. Examples: Splunk Enterprise Security, Microsoft Sentinel, IBM QRadar, Elastic Security. Output: alerts requiring human investigation. SOAR (Security Orchestration, Automation, Response) — playbook automation across tools. Examples: Splunk SOAR (formerly Phantom), Palo Alto XSOAR, IBM Resilient. Output: automated response actions (block IP, disable user, create ticket). Use together: SIEM detects → SOAR auto-triages low-severity alerts → escalates high-severity to humans. SOAR adoption growing fast in 2026 — saves 30-40% L1 analyst time at mature SOCs.",
       "slug": "difference-between-siem-and-soar-when-do-you-use-each",
-      "wordCount": 85
+      "wordCount": 85,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2136,7 +2517,11 @@
       "question": "How do AWS CloudTrail, GuardDuty, and Security Hub work together?",
       "answer": "CloudTrail — API call audit log (every action across AWS account, who/what/when/where). Free baseline + paid management/data event variants. GuardDuty — managed threat detection on CloudTrail + VPC Flow Logs + DNS logs. Outputs: alerts for known threat patterns (cryptomining, instance compromise, IAM credential abuse). Security Hub — central aggregation point for findings from GuardDuty, Macie, Inspector, third-party tools. Provides compliance scoring (CIS, NIST, PCI-DSS benchmarks). SOC analyst workflow: Security Hub → triage findings → drill into GuardDuty alert details → use CloudTrail for forensic timeline.",
       "slug": "how-do-aws-cloudtrail-guardduty-and-security-hub-work-together",
-      "wordCount": 86
+      "wordCount": 86,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2148,7 +2533,13 @@
       "question": "Explain how you'd detect DNS tunneling using Splunk.",
       "answer": "DNS tunneling = encoding data in DNS queries/responses to bypass firewalls. Detection patterns: (1) Unusually long subdomain names (legitimate DNS rarely has 200+ char subdomains): index=dns | eval subdomain_length=len(query) | where subdomain_length > 100. (2) High query volume from single client: index=dns | stats count by src_ip | where count > 1000 (per hour). (3) High entropy in subdomains (random-looking strings): use Splunk MLTK shannon entropy command or custom Python. (4) Unusual record types (TXT, NULL queries from clients): index=dns query_type IN (TXT, NULL) NOT src_ip IN (legit_resolver_list). Tools: Splunk Enterprise Security has DNS analytics; standalone: bandit / Suricata DNS rules; ML option: MLTK anomaly detection on DNS metrics.",
       "slug": "explain-how-youd-detect-dns-tunneling-using-splunk",
-      "wordCount": 109
+      "wordCount": 109,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "experienced",
+        "foundational"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2160,7 +2551,11 @@
       "question": "What's a Sigma rule and why is it useful for SOC?",
       "answer": "Sigma rule (Florian Roth, 2017) — vendor-neutral YAML format for security detection logic. Structure: title, detection logic, log source, level. Example: detect PowerShell EncodedCommand → write once in Sigma → convert to Splunk SPL via sigmac → also convert to Elastic Lucene, QRadar AQL, Sentinel KQL. Why useful: (1) Portable across SIEMs; (2) Community-shared (SigmaHQ GitHub has 3,000+ rules); (3) Standard format for detection-as-code. SOC L2/L3 analysts must be Sigma-fluent. Modern Bangalore SOCs increasingly require detection-as-code skills with Git workflows.",
       "slug": "whats-a-sigma-rule-and-why-is-it-useful-for-soc",
-      "wordCount": 80
+      "wordCount": 80,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2172,7 +2567,11 @@
       "question": "User clicked phishing link. What's your investigation flow?",
       "answer": "Time-bounded investigation in 30 minutes: (1) Identify what they clicked — pull email from M365, extract URL. (2) Reputation check — VirusTotal, urlscan.io. (3) If credential phishing: did they enter credentials? Check ADFS/M365 sign-in logs for that user — any new sign-ins from unusual IPs/locations? (4) Force password reset + revoke active sessions immediately. (5) Check MFA status — if MFA enabled, attacker can't login with stolen creds (high-confidence containment). (6) Search inbox rules — common attacker action is creating auto-forward rule to exfil emails. (7) Check OAuth grants — attacker may have granted OAuth tokens to bypass password change. (8) Search M365 audit log for any other user activity from attacker IP. (9) Detection improvement — add the URL/domain to blocklist, search org-wide for other clicks.",
       "slug": "user-clicked-phishing-link-whats-your-investigation-flow",
-      "wordCount": 127
+      "wordCount": 127,
+      "difficulty": "mid",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2184,7 +2583,11 @@
       "question": "How do you triage if a brute-force attack succeeded?",
       "answer": "(1) Identify successful login (event 4624) following multiple failures (event 4625) from same source IP. (2) Check legitimate use — was the user actually working at that time? Pull sign-in logs from M365/ADFS. (3) Geographic anomaly — login from country user has never used before. (4) Velocity check — was there a legitimate login from another country within hours? Impossible travel = compromised. (5) Post-login activity — what did the account do after login? Database queries? File downloads? Email sent to new addresses? (6) Force password reset, revoke sessions, MFA enrollment. (7) Hunt for other accounts brute-forced by same IP — likely campaign, not isolated incident. (8) Detection: write Sigma rule for 'failed authentication burst followed by success from same IP within 5 minutes'.",
       "slug": "how-do-you-triage-if-a-brute-force-attack-succeeded",
-      "wordCount": 124
+      "wordCount": 124,
+      "difficulty": "mid",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2196,7 +2599,11 @@
       "question": "What's the difference between PCI-DSS and ISO 27001 from SOC perspective?",
       "answer": "PCI-DSS — payment card data security standard. SOC implications: cardholder data environment (CDE) requires extra logging, monitoring, daily review of security events. Specific requirements: log retention 1 year (90 days online), file integrity monitoring (FIM), quarterly internal vulnerability scans. ISO 27001 — broader Information Security Management System (ISMS) standard. SOC implications: documented incident response procedure, log review cadence, evidence collection for auditor review. Both require demonstration of SOC operational maturity. SOC L2/L3 roles often involve audit support — being able to walk auditor through 'how did you detect + respond to incident X' is interview gold.",
       "slug": "whats-the-difference-between-pci-dss-and-iso-27001-from-soc-perspective",
-      "wordCount": 96
+      "wordCount": 96,
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2208,7 +2615,11 @@
       "question": "How do I move from SOC L1 to L2 faster?",
       "answer": "Practical steps: (1) Master 1 SIEM platform deep (typically Splunk for Bangalore SOCs); (2) Earn Splunk Power User Certified or equivalent; (3) Volunteer for night shift incident handling — gets you hands-on with real incidents (not just runbook execution); (4) Document case studies from your investigations — build a portfolio you can reference in L2 interviews; (5) Learn Sigma rule writing + contribute to detection engineering; (6) Master MITRE ATT&CK enough to discuss in interviews; (7) Add a specialisation: cloud (AWS Security Specialty), threat intel, or detection engineering. Realistic timeline: 18-24 months L1 → L2 with focused effort. Faster: 12-15 months if you handle a real major incident well.",
       "slug": "how-do-i-move-from-soc-l1-to-l2-faster",
-      "wordCount": 109
+      "wordCount": 109,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2220,7 +2631,11 @@
       "question": "How is AI changing the SOC analyst role in 2026?",
       "answer": "Already changing meaningfully. (1) AI-powered triage — UEBA tools (Microsoft Sentinel UEBA, Splunk MLTK, Securonix) auto-prioritise alerts, reducing L1 alert volume 30-40%. (2) AI-assisted investigation — Microsoft Copilot for Security, Anthropic Claude integrations help analysts summarise alerts, write reports faster. (3) Generative AI threats — LLM-generated phishing at industrial scale, AI-powered social engineering. SOCs need new detection patterns. Career advice: (1) Skip 'pure Tier 1 alert triage' as long-term destination; (2) Aim for L2/L3 + detection engineering by year 3; (3) Add AI security skills (OWASP LLM Top 10, MITRE ATLAS) for future-proofing. SOC analysts who augment with AI thrive; those who compete with AI commodify.",
       "slug": "how-is-ai-changing-the-soc-analyst-role-in-2026",
-      "wordCount": 106
+      "wordCount": 106,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2232,7 +2647,9 @@
       "question": "Tell me about a real incident you investigated.",
       "answer": "STAR format (Situation, Task, Action, Result). Best examples: (1) Lab/training incidents — even from coursework, walk through the technical detail; (2) CTF investigation challenges — TryHackMe SOC L1 path provides real scenario practice; (3) Volunteer/consulting investigations; (4) Personal lab incidents you've simulated. Key elements: technical depth (specific tools, queries, findings), business impact awareness, lessons learned. Avoid: generic answers, claiming experience you don't have. Specificity wins — 'I was investigating a brute-force followed by 4624 from IP X, and noticed Y unusual authentication pattern...' beats 'I responded to many incidents'.",
       "slug": "tell-me-about-a-real-incident-you-investigated",
-      "wordCount": 89
+      "wordCount": 89,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "soc-analyst",
@@ -2244,7 +2661,11 @@
       "question": "How do you handle disagreement with a senior analyst's call?",
       "answer": "Show structured + respectful approach: (1) Acknowledge their perspective + experience; (2) Present specific data/observation that informs your view; (3) Frame as question, not challenge: 'I noticed X — does that change the analysis?'; (4) If still disagreed, escalate via process (L3 or manager) without bypass; (5) Accept the call as it stands while documenting your concern; (6) Seek post-mortem feedback to learn. Interviewers want to see: independent thinking + collaborative communication + respect for authority but not silent compliance. Avoid: 'I always defer to seniors' (too passive) or 'I'd push back hard' (too combative).",
       "slug": "how-do-you-handle-disagreement-with-a-senior-analysts-call",
-      "wordCount": 95
+      "wordCount": 95,
+      "difficulty": "hard",
+      "audiences": [
+        "experienced"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2256,7 +2677,9 @@
       "question": "Which Splunk certifications matter for SOC career?",
       "answer": "Tier 1 (most useful for SOC roles): (1) Splunk Core Certified User — entry level, free at Splunk Education. (2) Splunk Power User Certified — proves SPL fluency. (3) Splunk Enterprise Certified Admin — system admin focus, better for L3/architect roles. Splunk Enterprise Security Certified Admin — proves Splunk ES (the SIEM product) skills. Tier 2 (specialised): SOAR Certified Admin (for analysts moving toward automation). Cost-benefit: Splunk Power User adds ₹1-2 LPA to fresher salary, takes 8-10 weeks to clear. Best ROI cert in the SOC track. Splunk Enterprise Certified Admin is mid-career relevant (year 2-3+).",
       "slug": "which-splunk-certifications-matter-for-soc-career",
-      "wordCount": 96
+      "wordCount": 96,
+      "difficulty": "mid",
+      "audiences": []
     },
     {
       "topic": "soc-analyst",
@@ -2268,7 +2691,11 @@
       "question": "Why does a SOC analyst need to know networking?",
       "answer": "Most SOC investigations involve network logs (firewalls, IDS/IPS, NetFlow). Without networking foundations, you can't: (1) Read packet captures effectively (Wireshark requires TCP/IP fluency); (2) Distinguish normal vs anomalous traffic patterns (TCP handshake anomalies, port scans, unusual protocol use); (3) Validate firewall denies (was the deny correct? what would have happened if allowed?); (4) Understand cloud network logs (VPC Flow Logs, Azure NSG flow logs require networking baseline); (5) Investigate lateral movement (internal network paths, remote service access). CCNA-level depth is the minimum bar. SOC L2/L3 roles often expect Network+ or higher.",
       "slug": "why-does-a-soc-analyst-need-to-know-networking",
-      "wordCount": 91
+      "wordCount": 91,
+      "difficulty": "easy",
+      "audiences": [
+        "freshers"
+      ]
     },
     {
       "topic": "soc-analyst",
@@ -2280,7 +2707,440 @@
       "question": "What questions do you have for us?",
       "answer": "Strong question categories: (1) Process — 'What's a typical week look like for SOC L1 here? Shift breakdown?'; (2) Tools — 'Which SIEM + EDR platforms do you use? Are there plans to add SOAR?'; (3) Growth — 'What's the typical L1 → L2 timeline at your team? What learning resources are available?'; (4) Tech debt — 'What's the most challenging detection gap your team is working on closing?'; (5) Team culture — 'How does the team handle complex incidents — collaboration patterns?'. Avoid: 'What's the salary?' (already negotiated separately), 'How many vacation days?' (signals wrong priorities). Strong questions show you're hiring them as much as they're hiring you.",
       "slug": "what-questions-do-you-have-for-us",
-      "wordCount": 109
+      "wordCount": 109,
+      "difficulty": "mid",
+      "audiences": [
+        "experienced"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Palo Alto HA",
+      "categorySlug": "palo-alto-ha",
+      "question": "What is HA1 and HA2 in Palo Alto high availability configuration?",
+      "answer": "HA1 is the control link carrying heartbeats, hello messages, and configuration synchronization between active and passive firewalls. HA2 is the data link that synchronizes session tables, forwarding tables, IPsec security associations, and ARP entries to ensure stateful failover. HA1 uses port 28769 and 28260; HA2 uses 29281. Both require dedicated physical interfaces—typically management or dedicated data ports. Bangalore enterprises like Razorpay and Flipkart run active-passive HA pairs in their data centers. Interview tip: Explain that HA1 failure triggers split-brain scenarios, while HA2 failure causes session drops during failover because state isn't synchronized.",
+      "slug": "what-is-ha1-and-ha2-in-palo-alto-high-availability-configuration",
+      "wordCount": 92,
+      "_generated_from": {
+        "sourceQuery": "palo alto interview questions",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Palo Alto",
+      "categorySlug": "palo-alto",
+      "question": "What constitutes the 6-tuple for session matching in Palo Alto Networks firewalls?",
+      "answer": "The 6-tuple used by Palo Alto Networks firewalls for session matching comprises the source IP address, destination IP address, source port, destination port, protocol, and the ingress zone. This combination uniquely identifies a network flow, allowing the firewall to apply security policies consistently. The ingress zone is critical for policy enforcement, as it determines which security rules are evaluated. Bangalore companies like Akamai and Aryaka, heavily reliant on Palo Alto, expect engineers to understand how this 6-tuple impacts policy lookup and NAT application. Interview tip: Always mention the ingress zone; it's a common differentiator from other firewall vendors' session identification methods.",
+      "slug": "what-constitutes-the-6-tuple-for-session-matching-in-palo-alto-networks-firewall",
+      "wordCount": 101,
+      "_generated_from": {
+        "sourceQuery": "palo alto interview questions",
+        "intent": "basic",
+        "model": "google/gemini-2.5-flash"
+      },
+      "difficulty": "mid",
+      "audiences": [
+        "experienced"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Routing Protocols",
+      "categorySlug": "routing-protocols",
+      "question": "What is MP-BGP and how does it differ from regular BGP-4?",
+      "answer": "MP-BGP (Multiprotocol BGP) extends BGP-4 to carry routing information for multiple address families beyond IPv4 unicast, including IPv6, VPNv4, EVPN, and multicast routes. Regular BGP-4 only advertises IPv4 unicast prefixes. MP-BGP uses Address Family Identifier (AFI) and Subsequent AFI (SAFI) fields to distinguish route types within the same BGP session. Cisco India and service providers like Aryaka use MP-BGP extensively for MPLS L3VPN deployments where VPNv4 routes carry both customer prefix and Route Distinguisher. Interview tip: Mention that MP-BGP enables a single BGP peering to handle multiple routing tables simultaneously, critical for modern multi-tenant networks.",
+      "slug": "what-is-mp-bgp-and-how-does-it-differ-from-regular-bgp-4",
+      "wordCount": 95,
+      "_generated_from": {
+        "sourceQuery": "bgp interview questions",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Routing Protocols",
+      "categorySlug": "routing-protocols",
+      "question": "What is the difference between OSPF and EIGRP, and when would you choose each in 2026?",
+      "answer": "OSPF is an open-standard link-state protocol using Dijkstra's algorithm, while EIGRP is Cisco's advanced distance-vector protocol using DUAL. OSPF floods LSAs across all routers in an area; EIGRP sends bounded updates only to affected neighbors. In 2026, choose OSPF for multi-vendor environments—Bangalore enterprises like Flipkart and Razorpay prefer it for vendor neutrality. Use EIGRP in pure Cisco shops (Cisco India, HCL) where sub-second convergence and simpler configuration matter. Interview tip: Mention OSPF area design and EIGRP's feasible successor concept—both are tested in Cisco interviews at Movate and Aryaka.",
+      "slug": "what-is-the-difference-between-ospf-and-eigrp-and-when-would-you-choose-each-in-",
+      "wordCount": 88,
+      "_generated_from": {
+        "sourceQuery": "ospf interview questions",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "BGP",
+      "categorySlug": "bgp",
+      "question": "Explain MP-BGP address families and their use cases (VPNv4, EVPN, IPv6, multicast).",
+      "answer": "MP-BGP extends BGP to carry routing information for multiple protocols beyond IPv4 unicast using Address Family Identifiers (AFI) and Subsequent AFI (SAFI). VPNv4 (AFI 1, SAFI 128) carries MPLS L3VPN routes with route distinguishers, used by Cisco India and Aryaka for customer VPN separation. EVPN (AFI 25, SAFI 70) transports MAC/IP bindings for data center fabric overlays—Flipkart and Razorpay deploy this in VXLAN environments. IPv6 unicast (AFI 2, SAFI 1) enables dual-stack routing. Multicast (SAFI 2) distributes multicast topology separately from unicast. Interview tip: Bangalore ISPs like Tata Communications expect you to configure 'address-family vpnv4' and explain RD/RT mechanics for L3VPN troubleshooting.",
+      "slug": "explain-mp-bgp-address-families-and-their-use-cases-vpnv4-evpn-ipv6-multicast",
+      "wordCount": 102,
+      "_generated_from": {
+        "sourceQuery": "bgp interview questions",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "ai-cybersecurity",
+      "topicLabel": "AI Cybersecurity",
+      "sourceUrl": "/ai-cyber-security-interview-questions-2026/",
+      "targetKeyword": "ai cyber security interview questions",
+      "category": "Cybersecurity Fundamentals",
+      "categorySlug": "cybersecurity-fundamentals",
+      "question": "What is the difference between IT cybersecurity and OT (Operational Technology) cybersecurity?",
+      "answer": "The primary difference lies in their priorities: IT cybersecurity prioritizes confidentiality, integrity, and availability (CIA), while OT cybersecurity prioritizes availability, integrity, and then confidentiality (AIC). OT systems, like those in manufacturing or power grids, are critical for continuous operations, so downtime is far more impactful than data breaches. Attacks on OT can lead to physical damage, production halts, or even loss of life. In Bangalore, companies like Schneider Electric or ABB, which deal with industrial control systems, heavily invest in OT security, often using specialized protocols and isolated networks, distinct from their corporate IT infrastructure. Interviewers at these firms will expect you to understand this fundamental distinction.",
+      "slug": "what-is-the-difference-between-it-cybersecurity-and-ot-operational-technology-cy",
+      "wordCount": 107,
+      "_generated_from": {
+        "sourceQuery": "cybersecurity interview questions",
+        "intent": "basic",
+        "model": "google/gemini-2.5-flash"
+      },
+      "difficulty": "mid",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "ai-cybersecurity",
+      "topicLabel": "AI Cybersecurity",
+      "sourceUrl": "/ai-cyber-security-interview-questions-2026/",
+      "targetKeyword": "ai cyber security interview questions",
+      "category": "OT/ICS Security",
+      "categorySlug": "ot-ics-security",
+      "question": "How does OT/ICS cybersecurity differ from enterprise IT security, and what skills are critical for interviewers?",
+      "answer": "OT/ICS cybersecurity prioritizes availability and safety over confidentiality, a stark contrast to enterprise IT where data confidentiality is paramount. OT environments often use legacy, proprietary protocols and systems (e.g., Modbus, DNP3) that cannot tolerate frequent patching or reboots, making traditional IT security tools unsuitable. Interviewers assess understanding of these unique constraints, knowledge of industrial protocols, and familiarity with standards like ISA/IEC 62443. Experience with SCADA systems, PLCs, and network segmentation (e.g., Purdue Model) is highly valued. Bangalore employers like Wipro and Infosys are increasingly seeking candidates with this specialized knowledge for their critical infrastructure projects.",
+      "slug": "how-does-ot-ics-cybersecurity-differ-from-enterprise-it-security-and-what-skills",
+      "wordCount": 95,
+      "_generated_from": {
+        "sourceQuery": "cybersecurity interview questions",
+        "intent": "basic",
+        "model": "google/gemini-2.5-flash"
+      },
+      "difficulty": "mid",
+      "audiences": []
+    },
+    {
+      "topic": "ethical-hacking",
+      "topicLabel": "Ethical Hacking",
+      "sourceUrl": "/ethical-hacking-interview-questions-2026/",
+      "targetKeyword": "ethical hacking interview questions",
+      "category": "Web Security",
+      "categorySlug": "web-security",
+      "question": "What is a CSRF token, and how does it differ from a CORS header?",
+      "answer": "A CSRF token is a unique, secret, and unpredictable value generated by the server and embedded in web forms to protect against Cross-Site Request Forgery attacks. It ensures that the request originated from the legitimate application, not an attacker's site. CORS (Cross-Origin Resource Sharing) headers, conversely, are HTTP headers used by servers to tell browsers whether to permit web applications running at one origin (domain) to access selected resources from a different origin. While both relate to web security, CSRF tokens prevent unauthorized state-changing requests, whereas CORS controls cross-origin data access. Bangalore hiring note: Companies like Razorpay and Flipkart frequently test this distinction for web security roles.",
+      "slug": "what-is-a-csrf-token-and-how-does-it-differ-from-a-cors-header",
+      "wordCount": 107,
+      "_generated_from": {
+        "sourceQuery": "ethical hacking interview questions",
+        "intent": "basic",
+        "model": "google/gemini-2.5-flash"
+      },
+      "difficulty": "mid",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "ethical-hacking",
+      "topicLabel": "Ethical Hacking",
+      "sourceUrl": "/ethical-hacking-interview-questions-2026/",
+      "targetKeyword": "ethical hacking interview questions",
+      "category": "Ethical Hacking",
+      "categorySlug": "ethical-hacking",
+      "question": "Explain SQL injection types: in-band, blind, and out-of-band, and how they are detected.",
+      "answer": "SQL injection types include In-band, Blind, and Out-of-band. In-band, or error-based/union-based, returns data directly in the application's response, detected by observing error messages or union query results. Blind SQLi, like boolean-based or time-based, doesn't return data directly; detection relies on observing application behavior changes (e.g., page load times or true/false responses). Out-of-band SQLi uses the database server's out-of-band communication capabilities, such as DNS or HTTP requests, to exfiltrate data, detected by monitoring network traffic for unusual outbound connections from the database server. Bangalore companies like Wipro and Infosys often test for practical detection skills using tools like SQLMap.",
+      "slug": "explain-sql-injection-types-in-band-blind-and-out-of-band-and-how-they-are-detec",
+      "wordCount": 98,
+      "_generated_from": {
+        "sourceQuery": "ethical hacking interview questions",
+        "intent": "basic",
+        "model": "google/gemini-2.5-flash"
+      },
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "soc-analyst",
+      "topicLabel": "SOC Analyst",
+      "sourceUrl": "/soc-analyst-interview-questions-2026/",
+      "targetKeyword": "soc analyst interview questions",
+      "category": "SOC L1",
+      "categorySlug": "soc-l1",
+      "question": "What are the key differences between IDS, IPS, and NGFW?",
+      "answer": "An IDS (Intrusion Detection System) monitors network traffic for suspicious activity and alerts, but does not block it. An IPS (Intrusion Prevention System) also monitors, but can actively block or prevent detected threats in real-time. A Next-Generation Firewall (NGFW) combines traditional firewall functions with advanced features like application awareness, intrusion prevention, and deep packet inspection. For SOC L1 roles at companies like Wipro or Infosys, understanding that IPS and NGFW are inline devices capable of enforcement, while IDS is primarily for detection and alerting, is crucial. NGFWs offer a more comprehensive security posture by integrating multiple capabilities.",
+      "slug": "what-are-the-key-differences-between-ids-ips-and-ngfw",
+      "wordCount": 97,
+      "_generated_from": {
+        "sourceQuery": "soc analyst interview questions",
+        "intent": "basic",
+        "model": "google/gemini-2.5-flash"
+      },
+      "difficulty": "mid",
+      "audiences": []
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Transport Layer Protocols",
+      "categorySlug": "transport-layer-protocols",
+      "question": "What is the difference between TCP and UDP, and how does this affect interview answer choice for protocol questions?",
+      "answer": "TCP is connection-oriented with three-way handshake, sequencing, and guaranteed delivery; UDP is connectionless with no acknowledgments or retransmission. TCP uses ports like 80 (HTTP), 443 (HTTPS), 22 (SSH); UDP uses 53 (DNS), 69 (TFTP), 161 (SNMP). In Bangalore interviews at Cisco India or Infosys, protocol choice questions test real-world judgment—answer TCP for reliability-critical apps (file transfer, database replication), UDP for latency-sensitive traffic (VoIP, video streaming, OSPF hellos). Interview tip: Mention TCP overhead (20-byte header vs UDP's 8 bytes) and explain why DNS queries use UDP but zone transfers use TCP—shows depth beyond textbook answers.",
+      "slug": "what-is-the-difference-between-tcp-and-udp-and-how-does-this-affect-interview-an",
+      "wordCount": 94,
+      "_generated_from": {
+        "sourceQuery": "ccna interview questions",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Routing & Switching",
+      "categorySlug": "routing-switching",
+      "question": "What is VRRP and how does it differ from HSRP and GLBP for first-hop redundancy?",
+      "answer": "VRRP (Virtual Router Redundancy Protocol, RFC 5798) is an open-standard first-hop redundancy protocol that elects one master router from a group to forward traffic using a shared virtual IP. Unlike Cisco-proprietary HSRP, VRRP uses IP protocol 112 (not UDP) and allows the physical interface IP to match the virtual IP, eliminating one hop. GLBP differs by load-balancing across up to four routers simultaneously via multiple virtual MAC addresses, while VRRP and HSRP keep standby routers idle. Bangalore employers like Cisco India and Aryaka expect you to know VRRP's preemption is enabled by default (disabled in HSRP). Interview tip: mention VRRP's faster hello timer (1s default vs HSRP's 3s) when discussing convergence.",
+      "slug": "what-is-vrrp-and-how-does-it-differ-from-hsrp-and-glbp-for-first-hop-redundancy",
+      "wordCount": 111,
+      "_generated_from": {
+        "sourceQuery": "ccna interview questions",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "experienced",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "soc-analyst",
+      "topicLabel": "SOC Analyst",
+      "sourceUrl": "/soc-analyst-interview-questions-2026/",
+      "targetKeyword": "soc analyst interview questions",
+      "category": "SOC L1",
+      "categorySlug": "soc-l1",
+      "question": "What is the difference between threat hunting and incident response?",
+      "answer": "Threat hunting proactively searches for unknown threats within a network, assuming a breach has already occurred, using hypotheses and data analysis to find hidden malicious activity. Incident response, conversely, is a reactive process that begins after a known security incident has been detected, focusing on containing, eradicating, recovering from, and post-analyzing the specific event. For example, a SOC analyst at Wipro might hunt for specific C2 beaconing patterns, while incident response kicks in when a SIEM alert confirms a successful phishing attack. Bangalore hiring note: Many L1 SOC roles at companies like HCL or Movate expect a foundational understanding of both, even if you primarily perform one function.",
+      "slug": "what-is-the-difference-between-threat-hunting-and-incident-response",
+      "wordCount": 108,
+      "_generated_from": {
+        "sourceQuery": "soc analyst interview questions",
+        "intent": "basic",
+        "model": "google/gemini-2.5-flash"
+      },
+      "difficulty": "mid",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Network Support Tiers",
+      "categorySlug": "network-support-tiers",
+      "question": "What is L1, L2, L3 in network engineer support tiers and how do responsibilities differ?",
+      "answer": "L1 handles ticket logging, basic troubleshooting (ping, traceroute), password resets, and escalates unresolved issues—typically 6-12 months experience. L2 engineers diagnose routing protocol failures (OSPF neighbor states, BGP path selection), VLAN misconfigurations, and firewall ACL issues—requires 2-4 years and CCNA/CCNP. L3 architects solutions, handles complex multi-vendor integrations, capacity planning, and mentors junior staff—demands 5+ years with CCIE or equivalent. Bangalore employers like Cisco India, Aryaka, and Akamai clearly separate these tiers in NOC/TAC roles. Interview tip: Be honest about your tier—claiming L3 skills without design experience is immediately evident in technical rounds.",
+      "slug": "what-is-l1-l2-l3-in-network-engineer-support-tiers-and-how-do-responsibilities-d",
+      "wordCount": 91,
+      "_generated_from": {
+        "sourceQuery": "network engineer interview questions bgp ospf",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "soc-analyst",
+      "topicLabel": "SOC Analyst",
+      "sourceUrl": "/soc-analyst-interview-questions-2026/",
+      "targetKeyword": "soc analyst interview questions",
+      "category": "SOC Operations",
+      "categorySlug": "soc-operations",
+      "question": "What is L1, L2, L3 SOC analyst and how do responsibilities differ across tiers?",
+      "answer": "L1 analysts perform initial triage, monitor SIEM dashboards, and escalate confirmed incidents—think ticket validation and basic containment at Bangalore SOCs like HCL or Wipro. L2 analysts investigate escalated alerts, correlate threat intel, write Sigma rules, and map incidents to MITRE ATT&CK techniques—deeper forensics and response coordination. L3 analysts handle advanced threat hunting, zero-day analysis, playbook development, and architect detection logic—often ex-L2s at Akamai or Razorpay with 5+ years. Interview tip: Bangalore employers expect L1 candidates to explain a real alert they triaged; L2 roles test Sigma rule syntax and ATT&CK mapping on the spot.",
+      "slug": "what-is-l1-l2-l3-soc-analyst-and-how-do-responsibilities-differ-across-tiers",
+      "wordCount": 94,
+      "_generated_from": {
+        "sourceQuery": "soc analyst interview questions sigma rule mitre",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Cisco Network Engineer Interview",
+      "categorySlug": "cisco-network-engineer-interview",
+      "question": "What questions does Cisco India ask in a network engineer technical interview?",
+      "answer": "Cisco India typically asks protocol-deep questions: OSPF LSA types and area design, BGP path selection (local-pref, AS-path, MED), STP root election and BPDU mechanics, VLANs vs. VRFs, and troubleshooting scenarios using show commands. Expect CLI-based config tasks—configure EIGRP named mode, set up route redistribution, or fix a misconfigured trunk. They probe failure domains: what happens if HSRP active fails, or if a BGP peer flaps. Interview tip: Cisco Bangalore teams value hands-on lab proof—mention GNS3/EVE-NG projects and real outage root-cause experience. Candidates who cite specific show outputs (show ip bgp summary, show spanning-tree) stand out.",
+      "slug": "what-questions-does-cisco-india-ask-in-a-network-engineer-technical-interview",
+      "wordCount": 95,
+      "_generated_from": {
+        "sourceQuery": "cisco interview questions bgp ospf stp",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "mid",
+      "audiences": []
+    },
+    {
+      "topic": "ai-cybersecurity",
+      "topicLabel": "AI Cybersecurity",
+      "sourceUrl": "/ai-cyber-security-interview-questions-2026/",
+      "targetKeyword": "ai cyber security interview questions",
+      "category": "Automotive Cybersecurity",
+      "categorySlug": "automotive-cybersecurity",
+      "question": "Walk through automotive cybersecurity interview questions — what topics are covered?",
+      "answer": "Automotive cybersecurity interviews focus on ISO/SAE 21434 compliance, CAN bus security, V2X communication protocols, and OTA update integrity. Expect questions on intrusion detection for in-vehicle networks, secure boot mechanisms, and threat modeling for connected vehicles. Bangalore employers like Bosch, Continental, and Harman test knowledge of UNECE WP.29 regulations, automotive SIEM integration, and firmware signing. You'll face scenarios on ECU hardening, cryptographic key management for telematics, and incident response for fleet-wide attacks. Interview tip: Mention familiarity with tools like CANalyzer or Wireshark for CAN traffic analysis — automotive OEMs value hands-on protocol debugging experience.",
+      "slug": "walk-through-automotive-cybersecurity-interview-questions-what-topics-are-covere",
+      "wordCount": 93,
+      "_generated_from": {
+        "sourceQuery": "cybersecurity interview questions mitre att&ck",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "mid",
+      "audiences": [
+        "scenario"
+      ]
+    },
+    {
+      "topic": "ai-cybersecurity",
+      "topicLabel": "AI Cybersecurity",
+      "sourceUrl": "/ai-cyber-security-interview-questions-2026/",
+      "targetKeyword": "ai cyber security interview questions",
+      "category": "Cryptography Fundamentals",
+      "categorySlug": "cryptography-fundamentals",
+      "question": "What is the difference between symmetric and asymmetric encryption, and when do you use each?",
+      "answer": "Symmetric encryption uses one shared key for both encryption and decryption (AES-256, 3DES), while asymmetric uses a public-private key pair (RSA, ECC). Symmetric is 1000x faster, ideal for bulk data encryption—TLS uses AES after handshake, IPsec tunnels, disk encryption. Asymmetric handles key exchange and digital signatures—TLS handshake, SSH authentication, certificate signing. Real-world: Razorpay uses RSA 2048 for API authentication but AES-256-GCM for payment data at rest. Interview tip: Bangalore SOC roles expect you to explain why HTTPS combines both—RSA establishes session, AES encrypts traffic.",
+      "slug": "what-is-the-difference-between-symmetric-and-asymmetric-encryption-and-when-do-y",
+      "wordCount": 84,
+      "_generated_from": {
+        "sourceQuery": "cybersecurity interview questions tls kerberos",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "easy",
+      "audiences": [
+        "freshers",
+        "foundational"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Palo Alto Firewall",
+      "categorySlug": "palo-alto-firewall",
+      "question": "Explain how a Palo Alto Security Policy is evaluated — top-down rule processing.",
+      "answer": "Palo Alto firewalls evaluate security policies sequentially from top to bottom, stopping at the first matching rule. Each session is checked against rules in order: source zone, destination zone, application, service, and user. Once a match occurs, the action (allow/deny/drop) is applied and no further rules are evaluated. The default interzone rule at the bottom denies all traffic. Interview tip: Bangalore employers like Cisco India and Aryaka expect you to explain why rule order matters — placing broad permit-any rules at the top breaks security posture. Always position specific deny rules above general allow rules.",
+      "slug": "explain-how-a-palo-alto-security-policy-is-evaluated-top-down-rule-processing",
+      "wordCount": 95,
+      "_generated_from": {
+        "sourceQuery": "palo alto interview questions ha1 ha2",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "mid",
+      "audiences": [
+        "foundational"
+      ]
+    },
+    {
+      "topic": "cisco-network-engineer",
+      "topicLabel": "Cisco / Network Engineer",
+      "sourceUrl": "/cisco-network-engineer-interview-questions-2026/",
+      "targetKeyword": "cisco network engineer interview questions",
+      "category": "Interview Strategy",
+      "categorySlug": "interview-strategy",
+      "question": "What is the 30-60-90 day plan question in an interview, and how should a network engineer answer it?",
+      "answer": "The 30-60-90 day plan question asks candidates to outline their first three months on the job. Network engineers should structure it as: Days 1-30 — learn network topology, documentation standards, ticketing tools (ServiceNow/Remedy), shadow senior engineers; Days 31-60 — handle L2 incidents independently, contribute to change requests, audit VLAN/routing configs; Days 61-90 — propose optimization (OSPF tuning, ACL cleanup), document undocumented segments. Bangalore employers like Cisco India and Aryaka value this because it shows ownership mindset, not just technical skills. Interview tip: Reference the company's tech stack from the job description to show you researched their environment.",
+      "slug": "what-is-the-30-60-90-day-plan-question-in-an-interview-and-how-should-a-network-",
+      "wordCount": 97,
+      "_generated_from": {
+        "sourceQuery": "ccna interview questions tcp ospf",
+        "intent": "technical_deep",
+        "model": "anthropic/claude-sonnet-4.5"
+      },
+      "difficulty": "hard",
+      "audiences": [
+        "experienced",
+        "foundational"
+      ]
     }
-  ]
+  ],
+  "_lastClassified": "2026-05-12T07:48:38.963Z"
 }
